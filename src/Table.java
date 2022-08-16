@@ -1,3 +1,3 @@
-public class Table {
-    
+class Table {
+
 }
