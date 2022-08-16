@@ -6,7 +6,7 @@ public class NumField {
         this.fieldName = name;
     }
 
-    public void setFieldValue(int value) {
+    public void setNumFieldValue(int value) {
         this.fieldValue = value;
     }
 
@@ -14,7 +14,7 @@ public class NumField {
         return fieldName;
     }
 
-    public int getFieldValue() {
+    public int getNumFieldValue() {
         return fieldValue;
     }
 }

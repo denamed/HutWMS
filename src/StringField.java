@@ -6,7 +6,7 @@ public class StringField {
         this.fieldName = name;
     }
 
-    public void setFieldValue(String value) {
+    public void setStringFieldValue(String value) {
         this.fieldValue = value;
     }
 
@@ -14,7 +14,7 @@ public class StringField {
         return fieldName;
     }
 
-    public String getFieldValue() {
+    public String getStringFieldValue() {
         return fieldValue;
     }
 }
