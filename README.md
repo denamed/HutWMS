@@ -29,10 +29,12 @@ To be continued...
 
 ```mermaid
   graph TB
+    
     node([WMS])-->node1(Stock)
     node([WMS])-->node2(Warehouse)
     node([WMS])-->node3(Users)
     node([WMS])-->node4(Logic)
+
     node1(Stock)-->Owner
     node1(Stock)-->Characteristics
     Owner-->Catalogue
@@ -47,9 +49,9 @@ To be continued...
     Location-->Status
     Location-->LocType
     Location-.->Item
-    
+
     node3(Users)-->AdminsAndWorkers
     node3(Users)-->Rights
     Rights-.->AdminsAndWorkers
-    
+
 
