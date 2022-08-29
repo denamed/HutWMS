@@ -7,7 +7,7 @@ SQLite is used as database management system.
 *****************************************************
 Steps of the project creation:
 
-1) Download prebuild projact from the start.spring.io (dependency to "Spring WEB" and "Spring Data JBA" should be respected)
+1) Download prebuild projact from the https://start.spring.io (dependency to "Spring WEB" and "Spring Data JBA" should be respected)
 2) Configure maven depndency to SQLite driver by addyng strings to the pom.xml file taken from the maven repository
     https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
 3) Add below strings to the application.properties file (`{your package name}` should be replaced by your package name):
