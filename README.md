@@ -20,6 +20,6 @@ spring.jpa.hibernate.ddl-auto=create-drop
 spring.jpa.show-sql=true
 ```
 4) SQLite dialect support provided by the class file SQLDialect.java from your package folder
-5) If all dependencies are respected then database can be created by running the scratch file "dbcreate.java".
+5) If all dependencies are respected then database can be created by running the scratch file "createdb.java".
 
 To be continued...
