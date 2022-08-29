@@ -23,3 +23,33 @@ spring.jpa.show-sql=true
 5) If all dependencies are respected then database can be created by running the scratch file "createdb.java".
 
 To be continued...
+
+*****************************************************
+# Structure
+
+```mermaid
+  graph TB
+    node([WMS])-->node1(Stock)
+    node([WMS])-->node2(Warehouse)
+    node([WMS])-->node3(Users)
+    node([WMS])-->node4(Logic)
+    node1(Stock)-->Owner
+    node1(Stock)-->Characteristics
+    Owner-->Catalogue
+    Catalogue-->Item
+    Characteristics-.->Item
+    
+    node2(Warehouse)-->Building
+    Building-->Module
+    Module-->Area
+    Area-->Location
+    Area-->AreaType
+    Location-->Status
+    Location-->LocType
+    Location-.->Item
+    
+    node3(Users)-->AdminsAndWorkers
+    node3(Users)-->Rights
+    Rights-.->AdminsAndWorkers
+    
+
