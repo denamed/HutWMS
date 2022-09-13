@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BUILDINGS INFO</title>
+</head>
+<body>
+<div><a href="/">Return back</a></div>
+<div><H2>BUILDINGS</H2></div>
+<table border="1" width="50%">
+    <tr><td width="80"><B>ID</B></td><td width="*"><B>Description</B></td></tr>
+{{#buildings}}
+    <tr><td>{{id}}</td><td>{{description}}</td></tr>
+{{/buildings}}
+</table>
+
+<div><h4>Add the building:</h4>
+    <form method="post">
+        <input type="number" maxlength="2" name="id" placeholder="Id for new building">
+        <input type="text" maxlength="16" name="desc" placeholder="Description for new building">
+        <button type="submit">Add</button>
+    </form>
+</div>
+</body>
+</html>

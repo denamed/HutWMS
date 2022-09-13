@@ -1,0 +1,27 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.3'
+	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id 'java'
+}
+
+group = 'com.denamed'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
+	implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.39.3.0'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mustache
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mustache', version: '2.7.3'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
