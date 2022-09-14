@@ -1,6 +1,5 @@
 package com.denamed.TestWMS.controllers;
 
-import com.denamed.TestWMS.entities.Building;
 import com.denamed.TestWMS.entities.Module;
 import com.denamed.TestWMS.repositories.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
