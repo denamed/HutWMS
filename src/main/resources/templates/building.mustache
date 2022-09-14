@@ -14,11 +14,11 @@
 {{/buildings}}
 </table>
 
-<div><h4>Add the building:</h4>
+<div><h4>Add or update the building:</h4>
     <form method="post">
-        <input type="number" maxlength="2" name="id" placeholder="Id for new building">
-        <input type="text" maxlength="16" name="desc" placeholder="Description for new building">
-        <button type="submit">Add</button>
+        <input type="number" min="1" max="99" name="id" placeholder="Id for the building">
+        <input type="text" maxlength="16" name="desc" placeholder="Description for the building">
+        <button type="submit">Add/Update</button>
     </form>
 </div>
 </body>
