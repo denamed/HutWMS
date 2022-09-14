@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MODULES INFO</title>
+</head>
+<body>
+<div><a href="/">Return back</a></div>
+<div><H2>MODULES</H2></div>
+<table width="500">
+    <tr><td width="100"><B>ID</B></td><td><B>Description</B></td><td width="100"><B>Building ID</B></td></tr>
+    {{#modules}}
+        <tr><td>{{id}}</td><td>{{description}}</td><td>{{buildingId}}</td></tr>
+    {{/modules}}
+</table>
+
+<div><h4>Add or update the building:</h4>
+    <form method="post">
+        <table width="500"><tr><td>
+        <input type="number" min="1" max="99" name="id" placeholder="Id for the module">
+        <input type="text" maxlength="16" name="desc" placeholder="Description for the module">
+        <input type="number" min="1" max="99" name="buildingId" placeholder="Id of building">
+        </td></tr></table>
+        <button type="submit">Add/Update</button>
+    </form>
+</div>
+</body>
+</html>

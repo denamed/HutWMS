@@ -1,6 +1,8 @@
 package com.denamed.TestWMS.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "Building")
 @Table(name = "building",
@@ -26,6 +28,10 @@ public class Building {
         this.id = id;
         this.description = description;
     }
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "building_id")
+    private List<Module> module = new ArrayList<>();
 
     public int getId() {
         return id;
