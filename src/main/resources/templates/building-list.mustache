@@ -12,6 +12,9 @@
     {{#buildings}}
         <tr><td>{{buildId}}</td><td>{{buildName}}</td></tr>
     {{/buildings}}
+    {{^buildings}}
+    <h3>No buildings added yet.</h3>
+    {{/buildings}}
 </table>
 
 <div><h4>Add or update the building:</h4>

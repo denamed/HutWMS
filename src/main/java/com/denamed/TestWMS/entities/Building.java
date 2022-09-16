@@ -1,4 +1,4 @@
-package com.denamed.TestWMS.Entities;
+package com.denamed.TestWMS.entities;
 
 import javax.persistence.*;
 
@@ -18,7 +18,7 @@ public class Building {
             length = 16)
     private String buildName;
 
-    public Building(){
+    public Building() {
     }
 
     public Building(int buildId,

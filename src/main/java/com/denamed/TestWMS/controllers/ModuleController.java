@@ -1,7 +1,7 @@
-package com.denamed.TestWMS.Controllers;
+package com.denamed.TestWMS.controllers;
 
-import com.denamed.TestWMS.Entities.Module;
-import com.denamed.TestWMS.Repositories.ModuleRepository;
+import com.denamed.TestWMS.entities.Module;
+import com.denamed.TestWMS.repositories.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +24,9 @@ public class ModuleController {
 
     @PostMapping("/module")
     public String addModule(@RequestParam Integer modulId,
-                              @RequestParam Integer buildId,
-                              @RequestParam String modulDesc,
-                              Map<String, Object> model) {
+                            @RequestParam Integer buildId,
+                            @RequestParam String modulDesc,
+                            Map<String, Object> model) {
         Module module = new Module(modulId, buildId, modulDesc);
         moduleRepository.save(module);
         Iterable<Module> modules = moduleRepository.findAll();
