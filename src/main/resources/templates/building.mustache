@@ -7,17 +7,19 @@
 <body>
 <div><a href="/">Return back</a></div>
 <div><H2>BUILDINGS</H2></div>
-<table border="1" width="50%">
-    <tr><td width="80"><B>ID</B></td><td width="*"><B>Description</B></td></tr>
-{{#buildings}}
-    <tr><td>{{id}}</td><td>{{description}}</td></tr>
-{{/buildings}}
+<table width="500">
+    <tr><td width="100"><B>ID</B></td><td><B>Description</B></td></tr>
+    {{#buildings}}
+        <tr><td>{{buildId}}</td><td>{{buildName}}</td></tr>
+    {{/buildings}}
 </table>
 
 <div><h4>Add or update the building:</h4>
     <form method="post">
-        <input type="number" min="1" max="99" name="id" placeholder="Id for the building">
-        <input type="text" maxlength="16" name="desc" placeholder="Description for the building">
+        <table width="500"><tr><td>
+        <input type="number" min="1" max="99" name="buildId" placeholder="Id for the building">
+        <input type="text" maxlength="16" name="buildName" placeholder="Description for the building">
+        </td></tr></table>
         <button type="submit">Add/Update</button>
     </form>
 </div>

@@ -23,11 +23,11 @@ public class ModuleController {
     }
 
     @PostMapping("/module")
-    public String addModule(@RequestParam Integer id,
-                              @RequestParam Integer buildingId,
-                              @RequestParam String desc,
+    public String addModule(@RequestParam Integer modulId,
+                              @RequestParam Integer buildId,
+                              @RequestParam String modulDesc,
                               Map<String, Object> model) {
-        Module module = new Module(id, buildingId, desc);
+        Module module = new Module(modulId, buildId, modulDesc);
         moduleRepository.save(module);
         Iterable<Module> modules = moduleRepository.findAll();
         model.put("modules", modules);

@@ -4,65 +4,65 @@ import javax.persistence.*;
 
 @Entity(name = "Module")
 @Table(name = "module",
-    uniqueConstraints = {@UniqueConstraint(name = "module_id_uniq", columnNames = "id")})
+    uniqueConstraints = {@UniqueConstraint(name = "modul_id_uniq", columnNames = "modul_id")})
 public class Module {
     @Id
-    @Column(name = "id",
+    @Column(name = "modul_id",
             columnDefinition = "INTEGER",
             length = 2,
             nullable = false)
-    private int id;
+    private int modulId;
 
-    @Column(name = "building_id",
+    @Column(name = "build_id",
             columnDefinition = "INTEGER",
             length = 2,
             nullable = false)
-    private int buildingId;
+    private int buildId;
 
-    @Column(name = "description",
+    @Column(name = "modul_desc",
             columnDefinition = "TEXT",
             length = 16)
-    private String description;
+    private String modulDesc;
 
     public Module(){
     }
 
-    public Module(int id, int buildingId, String description) {
-        this.id = id;
-        this.buildingId = buildingId;
-        this.description = description;
+    public Module(int modulId, int buildId, String modulDesc) {
+        this.modulId = modulId;
+        this.buildId = buildId;
+        this.modulDesc = modulDesc;
     }
 
-    public int getId() {
-        return id;
+    public int getModulId() {
+        return modulId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setModulId(int modulId) {
+        this.modulId = modulId;
     }
 
-    public int getBuildingId() {
-        return buildingId;
+    public int getBuildId() {
+        return buildId;
     }
 
-    public void setBuildingId(int buildingId) {
-        this.buildingId = buildingId;
+    public void setBuildId(int buildId) {
+        this.buildId = buildId;
     }
 
-    public String getDescription() {
-        return description;
+    public String getModulDesc() {
+        return modulDesc;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setModulDesc(String modulDesc) {
+        this.modulDesc = modulDesc;
     }
 
     @Override
     public String toString() {
         return "Module{" +
-                "id=" + id +
-                ", buildingId=" + buildingId +
-                ", description='" + description + '\'' +
+                "modul_id=" + modulId +
+                ", build_id=" + buildId +
+                ", modul_desc='" + modulDesc + '\'' +
                 '}';
     }
 }

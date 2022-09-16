@@ -23,10 +23,10 @@ public class BuildingController {
     }
 
     @PostMapping("/building")
-    public String addBuilding(@RequestParam Integer id,
-        @RequestParam String desc,
+    public String addBuilding(@RequestParam Integer buildId,
+        @RequestParam String buildName,
         Map<String, Object> model) {
-        Building building = new Building(id, desc);
+        Building building = new Building(buildId, buildName);
         buildingRepository.save(building);
         Iterable<Building> buildings = buildingRepository.findAll();
         model.put("buildings", buildings);

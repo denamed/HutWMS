@@ -6,54 +6,50 @@ import java.util.List;
 
 @Entity(name = "Building")
 @Table(name = "building",
-    uniqueConstraints = {@UniqueConstraint(name = "building_id_uniq", columnNames = "id")})
+    uniqueConstraints = {@UniqueConstraint(name = "build_id_uniq", columnNames = "build_id")})
 public class Building {
     @Id
-    @Column(name = "id",
+    @Column(name = "build_id",
             columnDefinition = "INTEGER",
             length = 2,
             nullable = false)
-    private int id;
+    private int buildId;
 
-    @Column(name = "description",
+    @Column(name = "build_name",
             columnDefinition = "TEXT",
             length = 16)
-    private String description;
+    private String buildName;
 
     public Building(){
     }
 
-    public Building(int id,
-                    String description) {
-        this.id = id;
-        this.description = description;
+    public Building(int buildId,
+                    String buildName) {
+        this.buildId = buildId;
+        this.buildName = buildName;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "building_id")
-    private List<Module> module = new ArrayList<>();
-
-    public int getId() {
-        return id;
+    public int getBuildId() {
+        return buildId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setBuildId(int buildId) {
+        this.buildId = buildId;
     }
 
-    public String getDescription() {
-        return description;
+    public String getBuildName() {
+        return buildName;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setBuildName(String buildName) {
+        this.buildName = buildName;
     }
 
     @Override
     public String toString() {
         return "Building{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
+                "build_id=" + buildId +
+                ", build_name='" + buildName + '\'' +
                 '}';
     }
 }
