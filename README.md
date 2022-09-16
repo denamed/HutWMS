@@ -6,8 +6,8 @@ SQLite is used as database management system.
 
 *****************************************************
 The project contains prebuilt project from start.spring.io
-Support of SQLite is realized by SQLDialect.java file
-Based on Liberica SDK v.17
+Support of SQLite is realized by SQLDialect.java file. 
+JAVA SDK used for the project is Liberica SDK v.17
 *****************************************************
 # Structure
 
