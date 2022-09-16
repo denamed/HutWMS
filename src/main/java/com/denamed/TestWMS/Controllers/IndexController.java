@@ -1,4 +1,4 @@
-package com.denamed.TestWMS.controllers;
+package com.denamed.TestWMS.Controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.denamed.TestWMS.entities;
+package com.denamed.TestWMS.Entities;
 
 import javax.persistence.*;
 

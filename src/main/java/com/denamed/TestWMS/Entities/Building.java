@@ -1,8 +1,6 @@
-package com.denamed.TestWMS.entities;
+package com.denamed.TestWMS.Entities;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity(name = "Building")
 @Table(name = "building",

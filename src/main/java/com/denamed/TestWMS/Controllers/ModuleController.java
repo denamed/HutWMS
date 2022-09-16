@@ -1,7 +1,7 @@
-package com.denamed.TestWMS.controllers;
+package com.denamed.TestWMS.Controllers;
 
-import com.denamed.TestWMS.entities.Module;
-import com.denamed.TestWMS.repositories.ModuleRepository;
+import com.denamed.TestWMS.Entities.Module;
+import com.denamed.TestWMS.Repositories.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

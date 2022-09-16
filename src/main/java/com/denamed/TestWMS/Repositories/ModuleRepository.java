@@ -1,6 +1,6 @@
-package com.denamed.TestWMS.repositories;
+package com.denamed.TestWMS.Repositories;
 
-import com.denamed.TestWMS.entities.Module;
+import com.denamed.TestWMS.Entities.Module;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ModuleRepository extends JpaRepository<Module, Integer> {
