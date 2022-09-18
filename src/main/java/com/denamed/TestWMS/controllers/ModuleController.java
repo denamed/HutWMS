@@ -1,25 +1,30 @@
 package com.denamed.TestWMS.controllers;
 
 import com.denamed.TestWMS.entities.Module;
-import com.denamed.TestWMS.repositories.ModuleRepository;
+import com.denamed.TestWMS.services.ModuleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import java.util.List;
 import java.util.Map;
 
 @Controller
 public class ModuleController {
+    private final ModuleService moduleService;
+
     @Autowired
-    private ModuleRepository moduleRepository;
+    public ModuleController(ModuleService moduleService) {
+        this.moduleService = moduleService;
+    }
 
     @GetMapping("/module")
-    public String module(Map<String, Object> model) {
-        Iterable<Module> modules = moduleRepository.findAll();
-        model.put("modules", modules);
-        return "module";
+    public String module(Model model) {
+        List<Module> modules = moduleService.findAll();
+        model.addAttribute("modules", modules);
+        return "module-list";
     }
 
     @PostMapping("/module")
@@ -31,6 +36,6 @@ public class ModuleController {
         moduleRepository.save(module);
         Iterable<Module> modules = moduleRepository.findAll();
         model.put("modules", modules);
-        return "module";
+        return "module-list";
     }
 }

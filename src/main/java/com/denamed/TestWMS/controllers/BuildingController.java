@@ -13,7 +13,6 @@ import java.util.Map;
 
 @Controller
 public class BuildingController {
-
     private final BuildingService buildingService;
 
     @Autowired
