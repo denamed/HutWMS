@@ -12,6 +12,9 @@
     {{#modules}}
         <tr><td>{{modulId}}</td><td>{{modulDesc}}</td><td>{{buildId}}</td></tr>
     {{/modules}}
+    {{^modules}}
+        <tr><td colspan="3"><h3>No modules added yet.</h3></td></tr>
+    {{/modules}}
 </table>
 
 <div><h4>Add or update the building:</h4>
