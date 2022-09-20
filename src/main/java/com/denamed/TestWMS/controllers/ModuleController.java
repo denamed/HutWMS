@@ -33,8 +33,8 @@ public class ModuleController {
                             @RequestParam String modulDesc,
                             Map<String, Object> model) {
         Module module = new Module(modulId, buildId, modulDesc);
-        moduleRepository.save(module);
-        Iterable<Module> modules = moduleRepository.findAll();
+        moduleService.saveModule(module);
+        Iterable<Module> modules = moduleService.findAll();
         model.put("modules", modules);
         return "module-list";
     }
