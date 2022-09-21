@@ -19,10 +19,13 @@
 
 <div><h4>Add or update the building:</h4>
     <form method="post">
-        <table width="500"><tr><td>
-        <input type="number" min="1" max="99" name="modulId" placeholder="Id for the module">
-        <input type="text" maxlength="16" name="modulDesc" placeholder="Description for the module">
-        <input type="number" min="1" max="99" name="buildId" placeholder="Id of building">
+        <table width="800"><tr><td>
+            <label>Module ID:</label>
+            <input type="number" min="1" max="99" name="modulId" required/>
+            <label>Module description:</label>
+            <input type="text" maxlength="16" name="modulDesc" required/>
+            <label>Parent building ID:</label>
+            <input type="number" min="1" max="99" name="buildId" required/>
         </td></tr></table>
         <button type="submit">Add/Update</button>
     </form>
