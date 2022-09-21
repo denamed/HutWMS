@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BUILDINGS INFO</title>
+</head>
+<body>
+<div><a href="/">Return back</a></div>
+<div><H2>AREA TYPES</H2></div>
+<table width="500">
+<tr><td width="100"><B>ID</B></td><td><B>Description</B></td></tr>
+{{#areaTypes}}
+    <tr><td>{{areaTypeId}}</td><td>{{areaTypeDesc}}</td></tr>
+{{/areaTypes}}
+{{^areaTypes}}
+    <tr><td colspan="3"><h3>No area types added yet.</h3></td></tr>
+{{/areaTypes}}
+</table>
+
+<div><h4>Add or update the area types:</h4>
+    <form method="post">
+        <table width="800"><tr><td>
+            <label>Area type ID:</label>
+            <input type="number" min="1" max = "99" name="areaTypeId" placeholder="Id for the area type" required>
+            <label>Area type desc:</label>
+            <input type="text" maxlength="20" name="areaTypeDesc" placeholder="Description for the area type" required>
+        </td></tr></table>
+        <button type="submit">Add/Update</button>
+    </form>
+</div>
+</body>
+</html>
