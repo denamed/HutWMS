@@ -20,8 +20,10 @@
 <div><h4>Add or update the building:</h4>
     <form method="post">
         <table width="500"><tr><td>
-        <input type="number" min="1" max="99" name="buildId" placeholder="Id for the building">
-        <input type="text" maxlength="16" name="buildName" placeholder="Description for the building">
+            <label>Building ID:</label>
+            <input type="number" min="1" max="99" name="buildId" required/>
+            <label>Building Description:</label>
+            <input type="text" maxlength="16" name="buildName" required/>
         </td></tr></table>
         <button type="submit">Add/Update</button>
     </form>

@@ -4,6 +4,7 @@ import com.denamed.TestWMS.entities.Building;
 import com.denamed.TestWMS.repositories.BuildingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 
 import java.util.List;
 
@@ -22,7 +23,6 @@ public class BuildingService {
     }
 
     public Building saveBuilding(Building building){
-        /* add validation if building already exists */
         return buildingRepository.save(building);
     }
 
