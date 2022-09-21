@@ -31,8 +31,6 @@ public class ModuleService {
             /* add message */
             return module;
         }
-        /* add validation if module already exist */
-//        return moduleRepository.save(module);
     }
 
     public void deleteModule(int modulId) {

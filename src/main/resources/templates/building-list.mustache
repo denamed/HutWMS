@@ -6,6 +6,7 @@
 </head>
 <body>
 <div><a href="/">Return back</a></div>
+{{#message}}{{{message}}}{{/message}}
 <div><H2>BUILDINGS</H2></div>
 <table width="500">
     <tr><td width="100"><B>ID</B></td><td><B>Description</B></td></tr>
@@ -17,7 +18,7 @@
     {{/buildings}}
 </table>
 
-<div><h4>Add or update the building:</h4>
+<div><h4>Add the building:</h4>
     <form method="post">
         <table width="800"><tr><td>
             <label>Building ID:</label>
@@ -25,7 +26,7 @@
             <label>Building Name:</label>
             <input type="text" maxlength="16" name="buildName" required/>
         </td></tr></table>
-        <button type="submit">Add/Update</button>
+        <button type="submit">Add</button>
     </form>
 </div>
 </body>

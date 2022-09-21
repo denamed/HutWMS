@@ -4,7 +4,6 @@ import com.denamed.TestWMS.entities.Building;
 import com.denamed.TestWMS.repositories.BuildingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.MissingServletRequestParameterException;
 
 import java.util.List;
 
@@ -22,8 +21,12 @@ public class BuildingService {
         return buildingRepository.findAll();
     }
 
-    public Building saveBuilding(Building building){
-        return buildingRepository.save(building);
+    public Building addBuilding(Building building) throws Exception{
+        if(buildingRepository.existsById(building.getBuildId())) {
+            throw new Exception("<style>.alert {color: #FF3300;}</style><h2 class=\"alert\">Building with id " + building.getBuildId() + " already exists</h2>");
+        } else {
+            return buildingRepository.save(building);
+        }
     }
 
     public void deleteBuilding(int buildId){

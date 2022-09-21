@@ -30,9 +30,14 @@ public class BuildingController {
     @PostMapping("/building")
     public String addBuilding(@RequestParam Integer buildId,
                               @RequestParam String buildName,
-                              Map<String, Object> model) {
+                              Map<String, Object> model)
+    {
         Building building = new Building(buildId, buildName);
-        buildingService.saveBuilding(building);
+        try {
+            buildingService.addBuilding(building);
+        } catch(Exception e) {
+            model.put("message", e.getMessage());
+        }
         List<Building> buildings = buildingService.findAll();
         model.put("buildings", buildings);
         return "building-list";
