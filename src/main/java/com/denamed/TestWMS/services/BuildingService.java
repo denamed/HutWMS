@@ -21,7 +21,7 @@ public class BuildingService {
     }
 
     public List<Building> findAll(){
-        return buildingRepository.findAll();
+        return buildingRepository.findByOrderByBuildIdAsc();
     }
 
     public Building createBuilding(Building building) throws Exception{

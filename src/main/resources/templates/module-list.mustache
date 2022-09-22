@@ -22,10 +22,15 @@
         <table width="800"><tr><td>
             <label>Module ID:</label>
             <input type="number" min="1" max="99" name="modulId" required/>
-            <label>Module description:</label>
+            <label>Description:</label>
             <input type="text" maxlength="16" name="modulDesc" required/>
-            <label>Parent building ID:</label>
-            <input type="number" min="1" max="99" name="buildId" required/>
+            <label for="blist">Parent building:</label>
+            <select name="buildId" id="blist" required>
+                <option value=""></option>
+                {{#buildings}}
+                    <option value="{{buildId}}">{{buildId}} {{buildName}}</option>
+                {{/buildings}}
+            </select>
         </td></tr></table>
         <button type="submit">Add/Update</button>
     </form>

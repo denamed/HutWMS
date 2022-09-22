@@ -52,17 +52,17 @@ public class BuildingController {
     @PostMapping("/building-create")
     public String addBuilding(@RequestParam Integer buildId,
                               @RequestParam String buildName,
-                              Map<String, Object> model)
+                              Model model)
     {
         Building building = new Building(buildId, buildName);
         try {
             buildingService.createBuilding(building);
             List<Building> buildings = buildingService.findAll();
-            model.put("buildings", buildings);
-            model.put("message", "Building successfully created.");
+            model.addAttribute("buildings", buildings);
+            model.addAttribute("message", "Building successfully created.");
             return "building-list";
         } catch(Exception e) {
-            model.put("message", e.getMessage());
+            model.addAttribute("message", e.getMessage());
             return "building-create";
         }
     }
