@@ -7,19 +7,34 @@
 <body>
 <div><a href="/">Return back</a></div>
 {{#message}}{{{message}}}{{/message}}
-<div><H2>BUILDINGS</H2></div>
-<table width="500">
+<table width="720">
+    <thead>
+    <tr>
+        <th colspan="4">BUILDINGS</th>
+    </tr>
+    </thead>
     <tr><td width="100"><B>ID</B></td><td><B>Description</B></td></tr>
     {{#buildings}}
-        <tr><td>{{buildId}}</td><td>{{buildName}}</td><td><form method="post"><button type="submit" formaction="/building-delete?buildId={{buildId}}">Delete</button></form></td></tr>
+        <tr>
+            <td width="50">{{buildId}}</td>
+            <td>{{buildName}}</td>
+            <td width="80"><form method="post">
+                <input type="number" value="{{buildId}}" name="buildId" hidden/>
+                <button type="submit" formaction="/building-edit">Edit</button>
+            </form></td>
+            <td width="80"><form method="post">
+                <input type="number" value="{{buildId}}" name="buildId" hidden/>
+                <button type="submit" formaction="/building-delete">Delete</button>
+            </form></td>
+        </tr>
     {{/buildings}}
     {{^buildings}}
-        <tr><td colspan="3"><h3>No buildings added yet.</h3></td></tr>
+        <tr><td colspan="4">No buildings added yet.</td></tr>
     {{/buildings}}
 </table>
 
 <div>
-    <a href="/building-create">Add the building...</a>
+    <a href="/building-create">Add the building</a>
 </div>
 </body>
 </html>
