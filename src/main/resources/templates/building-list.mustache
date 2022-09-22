@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>BUILDINGS INFO</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div><a href="/">Return back</a></div>
-{{#message}}{{{message}}}{{/message}}
-<table width="720">
+
+<table width="720" class="t">
     <thead>
+    <tr>
+        <td colspan="4">{{#message}}{{{message}}}{{/message}}</td>
+    </tr>
     <tr>
         <th colspan="4">BUILDINGS</th>
     </tr>
     </thead>
-    <tr><td width="100"><B>ID</B></td><td><B>Description</B></td></tr>
+    <tr><td width="100"><B>ID</B></td><td colspan="3"><B>Description</B></td></tr>
     {{#buildings}}
         <tr>
             <td width="50">{{buildId}}</td>

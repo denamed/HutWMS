@@ -1,0 +1,19 @@
+body {
+    background: #F6FCFF;
+}
+table {
+    border: 1px solid black;
+}
+tr {
+    border: 1px solid black;
+}
+td {
+    border: 1px solid black;
+}
+th {
+    border: 1px solid black;
+}
+.alert {
+    color: red;
+    font-size: 19px
+}

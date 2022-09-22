@@ -26,7 +26,7 @@ public class BuildingService {
 
     public Building createBuilding(Building building) throws Exception{
         if(buildingRepository.existsById(building.getBuildId())) {
-            throw new Exception("<style>.alert {color: #FF3300;}</style><h2 class=\"alert\">Building " + building.getBuildId() + " already exists!</h2>");
+            throw new Exception("<div class=\"alert\">Building " + building.getBuildId() + " already exists!</div>");
         } else {
             return buildingRepository.save(building);
         }
@@ -34,7 +34,7 @@ public class BuildingService {
 
     public void deleteBuilding(int buildId) throws Exception{
         if (moduleRepository.existsByBuildId(buildId)) {
-            throw new Exception("<style>.alert {color: #FF3300;}</style><h2 class=\"alert\">Building " + buildId + " have the modules!</h2>");
+            throw new Exception("<div class=\"alert\">Building " + buildId + " have the modules!</h2>");
         } else {
             buildingRepository.deleteById(buildId);
         }
