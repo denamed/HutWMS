@@ -11,23 +11,15 @@
 <table width="500">
     <tr><td width="100"><B>ID</B></td><td><B>Description</B></td></tr>
     {{#buildings}}
-        <tr><td>{{buildId}}</td><td>{{buildName}}</td></tr>
+        <tr><td>{{buildId}}</td><td>{{buildName}}</td><td><form method="post"><button type="submit" formaction="/building-delete?buildId={{buildId}}">Delete</button></form></td></tr>
     {{/buildings}}
     {{^buildings}}
         <tr><td colspan="3"><h3>No buildings added yet.</h3></td></tr>
     {{/buildings}}
 </table>
 
-<div><h4>Add the building:</h4>
-    <form method="post">
-        <table width="800"><tr><td>
-            <label>Building ID:</label>
-            <input type="number" min="1" max="99" name="buildId" required/>
-            <label>Building Name:</label>
-            <input type="text" maxlength="16" name="buildName" required/>
-        </td></tr></table>
-        <button type="submit">Add</button>
-    </form>
+<div>
+    <a href="/building-create">Add the building...</a>
 </div>
 </body>
 </html>

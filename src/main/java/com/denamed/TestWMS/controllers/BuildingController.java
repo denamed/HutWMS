@@ -21,25 +21,49 @@ public class BuildingController {
     }
 
     @GetMapping("/building")
-    public String building(Model model) {
+    public String buildingList(Model model) {
         List<Building> buildings = buildingService.findAll();
         model.addAttribute("buildings", buildings);
         return "building-list";
     }
 
-    @PostMapping("/building")
+    @PostMapping("/building-delete")
+    public String buildingDelete(@RequestParam Integer buildId, Model model) throws Exception {
+        try {
+            buildingService.deleteBuilding(buildId);
+            List<Building> buildings = buildingService.findAll();
+            model.addAttribute("buildings", buildings);
+            model.addAttribute("message", "Building successfully deleted.");
+            return "building-list";
+        } catch (Exception e) {
+            model.addAttribute("message", e.getMessage());
+            List<Building> buildings = buildingService.findAll();
+            model.addAttribute("buildings", buildings);
+            return "building-list";
+        }
+
+    }
+
+    @GetMapping("/building-create")
+    public String buildingCreate(Model model) {
+        return "building-create";
+    }
+
+    @PostMapping("/building-create")
     public String addBuilding(@RequestParam Integer buildId,
                               @RequestParam String buildName,
                               Map<String, Object> model)
     {
         Building building = new Building(buildId, buildName);
         try {
-            buildingService.addBuilding(building);
+            buildingService.createBuilding(building);
+            List<Building> buildings = buildingService.findAll();
+            model.put("buildings", buildings);
+            model.put("message", "Building successfully created.");
+            return "building-list";
         } catch(Exception e) {
             model.put("message", e.getMessage());
+            return "building-create";
         }
-        List<Building> buildings = buildingService.findAll();
-        model.put("buildings", buildings);
-        return "building-list";
     }
 }
