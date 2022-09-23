@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>BUILDINGS INFO</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-<div><a href="/">Return back</a></div>
+<div><a href="/">Main menu</a></div>
 
 <table width="720" class="t">
     <thead>
@@ -24,11 +24,11 @@
             <td>{{buildName}}</td>
             <td width="80"><form method="post">
                 <input type="number" value="{{buildId}}" name="buildId" hidden/>
-                <button type="submit" formaction="/building-edit">Edit</button>
+                <button type="submit" formaction="/building">Edit</button>
             </form></td>
             <td width="80"><form method="post">
                 <input type="number" value="{{buildId}}" name="buildId" hidden/>
-                <button type="submit" formaction="/building-delete">Delete</button>
+                <button type="submit" formaction="/building-delete" onclick="return confirm('Are you sure?');">Delete</button>
             </form></td>
         </tr>
     {{/buildings}}
@@ -36,7 +36,6 @@
         <tr><td colspan="4">No buildings added yet.</td></tr>
     {{/buildings}}
 </table>
-
 <div>
     <a href="/building-create">Add the building</a>
 </div>

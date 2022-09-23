@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BUILDINGS CREATE</title>
+    <title>BUILDINGS EDIT</title>
 </head>
 <body>
-<div><a href="/">Return back</a></div>
+<div><a href="/">Main menu</a></div>
 {{#message}}{{{message}}}{{/message}}
-<div><H2>BUILDING CREATE</H2></div>
-<div><h4>Add the building:</h4>
+<div><H2>BUILDING EDIT</H2></div>
+<div><h4>Edit the building:</h4>
     <form method="post">
-        <table width="800"><tr><td>
+        <table width="720"><tr><td>
             <label>Building ID:</label>
-            <input type="number" min="1" max="99" name="buildId" required/>
+            <input type="number" name="buildId" value="{{#building}}{{buildId}}{{/building}}" hidden required/>
+            <input type="number" value="{{#building}}{{buildId}}{{/building}}" disabled required/>
             <label>Building Name:</label>
-            <input type="text" maxlength="16" name="buildName" required/>
+            <input type="text" maxlength="16" name="buildName" value="{{#building}}{{buildName}}{{/building}}" required/>
         </td></tr></table>
-        <button type="submit">Add</button>
+        <button type="submit" formaction="/building-edit">Edit</button>
     </form>
 </div>
 </body>

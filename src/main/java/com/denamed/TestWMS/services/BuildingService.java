@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BuildingService {
@@ -24,6 +25,15 @@ public class BuildingService {
         return buildingRepository.findByOrderByBuildIdAsc();
     }
 
+    public Optional<Building> findById(int buildId) throws Exception {
+        Optional<Building> building = buildingRepository.findById(buildId);
+        if(building.isEmpty()) {
+            throw new Exception("<div class=\"alert\">Required building not exists!</div>");
+        } else {
+            return building;
+        }
+    }
+
     public Building createBuilding(Building building) throws Exception{
         if(buildingRepository.existsById(building.getBuildId())) {
             throw new Exception("<div class=\"alert\">Building " + building.getBuildId() + " already exists!</div>");
@@ -32,9 +42,13 @@ public class BuildingService {
         }
     }
 
+    public void editBuilding(Building building) {
+        buildingRepository.save(building);
+    }
+
     public void deleteBuilding(int buildId) throws Exception{
         if (moduleRepository.existsByBuildId(buildId)) {
-            throw new Exception("<div class=\"alert\">Building " + buildId + " have the modules!</h2>");
+            throw new Exception("<div class=\"alert\">Building " + buildId + " have the modules!</div>");
         } else {
             buildingRepository.deleteById(buildId);
         }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 public class BuildingController {
@@ -41,7 +42,31 @@ public class BuildingController {
             model.addAttribute("buildings", buildings);
             return "building-list";
         }
+    }
 
+    @PostMapping("/building")
+    public String buildingEdit(@RequestParam Integer buildId, Model model) throws Exception {
+        try {
+            Building building = buildingService.findById(buildId).get();
+            model.addAttribute("building", building);
+            return "building-edit";
+        } catch (Exception e) {
+            model.addAttribute("buildings", buildingService.findAll());
+            model.addAttribute("message", e.getMessage());
+            return "building-list";
+        }
+    }
+
+    @PostMapping("/building-edit")
+    public String editBuilding(@RequestParam Integer buildId,
+                               @RequestParam String buildName,
+                               Model model) {
+        Building building = new Building(buildId, buildName);
+        buildingService.editBuilding(building);
+        List<Building> buildings = buildingService.findAll();
+        model.addAttribute("buildings", buildings);
+        model.addAttribute("message", "Building successfully edited.");
+        return "building-list";
     }
 
     @GetMapping("/building-create")
