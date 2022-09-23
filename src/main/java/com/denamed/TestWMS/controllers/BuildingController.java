@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @Controller
 public class BuildingController {
@@ -29,7 +27,7 @@ public class BuildingController {
     }
 
     @PostMapping("/building-delete")
-    public String buildingDelete(@RequestParam Integer buildId, Model model) throws Exception {
+    public String buildingDelete(@RequestParam Integer buildId, Model model) {
         try {
             buildingService.deleteBuilding(buildId);
             List<Building> buildings = buildingService.findAll();
@@ -44,8 +42,8 @@ public class BuildingController {
         }
     }
 
-    @PostMapping("/building")
-    public String buildingEdit(@RequestParam Integer buildId, Model model) throws Exception {
+    @GetMapping("/building-edit")
+    public String buildingEdit(@RequestParam Integer buildId, Model model) {
         try {
             Building building = buildingService.findById(buildId).get();
             model.addAttribute("building", building);
