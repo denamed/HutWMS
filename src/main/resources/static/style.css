@@ -53,4 +53,10 @@ button:hover {
     text-shadow: 0px 0px 4px #F9F9F9;
     box-shadow: inset 0px 0px 2px #6C6C6C;
 }
+.menubut {
+    width: 178px;
+    height: 28px;
+    color: #333333;
+    font-size: 16px;
+}
 
