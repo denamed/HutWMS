@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+<!-- REPLACE TITLE NAME -->
+    <title>*********</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+
+<table class="table">
+<!-- REPLACE HEADER NAME -->
+    <caption>*********</caption>
+    <thead>
+    <tr>
+<!-- REPLACE BACK BUTTON DESTINATION -->
+        <th><form method="get"><button type="submit" formaction="/*********">< Back</button></form></th>
+        <th colspan="2">{{#message}}{{{message}}}{{/message}}</th>
+<!-- REPLACE ADD BUTTON NAME AND DESTINATION -->
+        <th><form method="get"><button type="submit" formaction="/********-create">Add +</button></form></th>
+    </tr>
+    </thead>
+    <tr><th width="72" align="left">ID</th><th colspan="3" align="left">Description</th></tr>
+<!-- REPLACE LIST VARIABLE -->
+    {{#*********}}
+        <tr>
+<!-- REPLACE VARIABLES NAMES -->
+            <td>{{*********}}</td>
+            <td>{{*********}}</td>
+            <td width="72"><form method="get">
+                <input type="number" value="{{*********}}" name="*********" hidden/>
+                <button type="submit" formaction="/*********-edit">Edit</button>
+            </form></td>
+            <td width="72"><form method="post">
+                <input type="number" value="{{*********}}" name="*********" hidden/>
+                <button type="submit" formaction="/*********-delete" onclick="return confirm('Are you sure?');">Delete</button>
+            </form></td>
+        </tr>
+<!-- REPLACE LIST VARIABLE CLOSURE TAG -->
+    {{/*********}}
+<!-- REPLACE LIST VARIABLE FOR BLANK LIST-->
+    {{^*********}}
+<!-- REPLACE BLANK MESSAGE-->
+            <tr><td colspan="4">No ************* added yet.</td></tr>
+<!-- REPLACE BLANK LIST VARIABLE CLOSURE TAG -->
+    {{/*********}}
+</table>
+
+</td></tr></table>
+</body>
+</html>
