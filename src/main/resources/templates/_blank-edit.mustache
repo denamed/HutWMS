@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+<!-- REPLACE TITLE NAME -->
+    <title>********* create</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+
+    <table class="table">
+<!-- REPLACE HEADER NAME -->
+        <caption>********* CREATE</caption>
+        <thead>
+        <tr>
+<!-- REPLACE BACK BUTTON DESTINATION -->
+            <th width="72"><form method="get"><button type="submit" formaction="/*********">< Back</button></form></th>
+            <th colspan="2">{{#message}}{{{message}}}{{/message}}</th>
+<!-- REPLACE RESET BUTTON DESTINATION -->
+            <th width="72"><form method="get"><button type="submit" formaction="/*********-create">Reset</button></form></th>
+        </tr>
+        </thead>
+        <form method="post">
+            <tr>
+<!-- REPLACE FIELDS LABELS AND VARIABLES NAMES -->
+                <td colspan="2"><label>********* ID:</label></td>
+                <td><input type="number" min="1" max="99" name="*********" required/></td>
+                <td></td>
+            </tr><tr>
+            <td colspan="2"><label>********* *********:</label></td>
+            <td><input type="text" maxlength="16" name="*********" required/></td>
+            <td></td>
+        </tr><tr>
+            <td colspan="4"><button type="submit">Add</button></td>
+        </tr>
+        </form>
+    </table>
+
+</td></tr></table>
+</body>
+</html>
