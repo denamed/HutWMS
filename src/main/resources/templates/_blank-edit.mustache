@@ -10,29 +10,33 @@
 <table width="100%" class="body"><tr><td align="center">
 
     <table class="table">
-<!-- REPLACE HEADER NAME -->
-        <caption>********* CREATE</caption>
+        <caption>BUILDING EDIT</caption>
         <thead>
         <tr>
 <!-- REPLACE BACK BUTTON DESTINATION -->
             <th width="72"><form method="get"><button type="submit" formaction="/*********">< Back</button></form></th>
             <th colspan="2">{{#message}}{{{message}}}{{/message}}</th>
+            <th width="72"><form method="get">
 <!-- REPLACE RESET BUTTON DESTINATION -->
-            <th width="72"><form method="get"><button type="submit" formaction="/*********-create">Reset</button></form></th>
+                <input type="number" name="*********buildId" value="{{#*********building}}{{*********buildId}}{{/*********building}}" hidden/>
+                <input type="text" name="*********buildName" value="{{#*********building}}{{*********buildName}}{{/*********building}}" hidden/>
+                <button type="submit" formaction="/*********-edit">Reset</button>
+            </form></th>
         </tr>
         </thead>
         <form method="post">
             <tr>
-<!-- REPLACE FIELDS LABELS AND VARIABLES NAMES -->
                 <td colspan="2"><label>********* ID:</label></td>
-                <td><input type="number" min="1" max="99" name="*********" required/></td>
+<!-- REPLACE FIELDS LABELS AND VARIABLES NAMES -->
+                <td><input type="number" name="*********buildId" value="{{#*********building}}{{*********buildId}}{{/*********building}}" hidden required/>
+                    <input type="number" value="{{#*********building}}{{*********buildId}}{{/*********building}}" disabled required/></td>
                 <td></td>
             </tr><tr>
-            <td colspan="2"><label>********* *********:</label></td>
-            <td><input type="text" maxlength="16" name="*********" required/></td>
+            <td colspan="2"><label>********* Name:</label></td>
+            <td><input type="text" maxlength="16" name="*********buildName" value="{{#*********building}}{{*********buildName}}{{/*********building}}" required/></td>
             <td></td>
         </tr><tr>
-            <td colspan="4"><button type="submit">Add</button></td>
+            <td colspan="4"><button type="submit" formaction="/*********-edit">Edit</button></td>
         </tr>
         </form>
     </table>
