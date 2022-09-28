@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>AREAS</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+
+<table class="table">
+    <caption>AREAS</caption>
+    <thead>
+    <tr>
+        <th><form method="get"><button type="submit" formaction="/">< Back</button></form></th>
+        <th width="100%" colspan="4">{{#message}}{{{message}}}{{/message}}</th>
+        <th><form method="get"><button type="submit" formaction="/area">Refresh</button></form></th>
+    </tr>
+    <tr>
+        <th width="72" align="left">ID</th>
+        <th align="left">Name</th>
+        <th align="left">Type</th>
+        <th align="left" colspan="3">Module</th>
+    </tr>
+    </thead>
+    {{#areas}}
+        <tr>
+            <td>{{areaId}}</td>
+            <td>{{areaName}}</td>
+            <td>{{areaTypeId}}</td>
+            <td width="100%">{{modulId}}</td>
+            <td width="72"><form method="get">
+                <input type="number" value="{{areaId}}" name="areaId" hidden/>
+                <button type="submit" formaction="/area-edit">Edit</button>
+            </form></td>
+            <td width="72"><form method="post">
+                <input type="number" value="{{areaId}}" name="areaId" hidden/>
+                <button type="submit" formaction="/area-delete" onclick="return confirm('Are you sure?');">Delete</button>
+            </form></td>
+        </tr>
+    {{/areas}}
+    {{^areas}}
+            <tr><td colspan="6">No areas added yet.</td></tr>
+    {{/areas}}
+<tfoot><tr><th colspan="6"><form method="get"><button type="submit" formaction="/area-create">Add +</button></form></th></tr></tfoot>
+</table>
+
+</td></tr></table>
+</body>
+</html>

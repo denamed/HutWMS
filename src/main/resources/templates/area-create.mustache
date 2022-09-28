@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Area create</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+
+    <table class="table">
+        <caption>AREA CREATE</caption>
+        <thead>
+        <tr>
+            <th width="72"><form method="get"><button type="submit" formaction="/area">< Back</button></form></th>
+            <th colspan="2">{{#message}}{{{message}}}{{/message}}</th>
+            <th width="72"><form method="get"><button type="submit" formaction="/area-create">Reset</button></form></th>
+        </tr>
+        </thead>
+        <form method="post">
+            <tr>
+                <td colspan="2"><label>Area ID:</label></td>
+                <td><input type="number" min="1" max="99" name="areaId" required/></td>
+                <td></td>
+            </tr><tr>
+            <td colspan="2"><label>Area name:</label></td>
+            <td><input type="text" maxlength="16" name="areaName" required/></td>
+            <td></td>
+            </tr><tr>
+                <td colspan="2"><label>Area type:</label></td>
+                <td><input type="number" min="1" max="999" name="areaTypeId" required/></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="2"><label>Module ID:</label></td>
+                <td><input type="number" min="1" max="99" name="modulId" required/></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="4"><button type="submit">Add</button></td>
+            </tr>
+        </form>
+    </table>
+
+</td></tr></table>
+</body>
+</html>

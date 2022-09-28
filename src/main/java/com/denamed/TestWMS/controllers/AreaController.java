@@ -1,21 +1,33 @@
 package com.denamed.TestWMS.controllers;
 
 import com.denamed.TestWMS.entities.Area;
+import com.denamed.TestWMS.entities.AreaType;
 import com.denamed.TestWMS.services.AreaService;
+import com.denamed.TestWMS.services.AreaTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
 public class AreaController {
     private final AreaService areaService;
+    private final AreaTypeService areaTypeService;
 
     @Autowired
-    public AreaController(AreaService areaService) { this.areaService = areaService; }
+    public AreaController(AreaService areaService,
+                          AreaTypeService areaTypeService)
+    {
+        this.areaService = areaService;
+        this.areaTypeService = areaTypeService;
+    }
 
     // Get list Area
     @GetMapping("/area")

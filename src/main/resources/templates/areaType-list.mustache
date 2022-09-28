@@ -13,7 +13,7 @@
     <thead>
     <tr>
         <th><form method="get"><button type="submit" formaction="/">< Back</button></form></th>
-        <th colspan="2">{{#message}}{{{message}}}{{/message}}</th>
+        <th width="100%" colspan="2">{{#message}}{{{message}}}{{/message}}</th>
         <th><form method="get"><button type="submit" formaction="/areaType">Refresh</button></form></th>
     </tr>
     <tr><th width="72" align="left">ID</th><th colspan="3" align="left">Description</th></tr>
@@ -22,7 +22,7 @@
 {{#areaTypes}}
     <tr>
         <td>{{areaTypeId}}</td>
-        <td>{{areaTypeDesc}}</td>
+        <td width="100%">{{areaTypeDesc}}</td>
         <td width="72"><form method="get">
             <input type="number" value="{{areaTypeId}}" name="areaTypeId" hidden/>
             <button type="submit" formaction="/areaType-edit">Edit</button>
