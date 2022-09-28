@@ -30,7 +30,7 @@ public class AreaTypeService {
     public void create(AreaType areaType) throws Exception
     {
         if(areaTypeRepository.existsById(areaType.getAreaTypeId())){
-            throw new Exception("<div class=\"alert\">Required area type not exists!</div>");
+            throw new Exception("<div class=\"alert\">Area type " + areaType.getAreaTypeId() +" is already exist!</div>");
         }
         else{
             areaTypeRepository.save(areaType);
