@@ -5,7 +5,6 @@ import com.denamed.TestWMS.repositories.BuildingRepository;
 import com.denamed.TestWMS.repositories.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 

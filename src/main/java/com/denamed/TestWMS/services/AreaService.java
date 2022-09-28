@@ -12,26 +12,23 @@ import java.util.Optional;
 @Service
 public class AreaService {
     private final AreaRepository areaRepository;
-    private final ModuleRepository moduleRepository;
     private final LocationRepository locationRepository;
 
     @Autowired
     public AreaService(AreaRepository areaRepository,
-                       ModuleRepository moduleRepository,
                        LocationRepository locationRepository)
     {
         this.areaRepository = areaRepository;
-        this.moduleRepository = moduleRepository;
         this.locationRepository = locationRepository;
     }
 
-    public List<Area> findAll() { return areaRepository.findByOrderByAreaIdAsc(); }
+    public List<Area> findAll() { return areaRepository.findAll(); }
 
     public Optional<Area> findById(int areaId) throws Exception
     {
         Optional<Area> area = areaRepository.findById(areaId);
         if(area.isEmpty()){
-            throw new Exception("<div class=\"alert\">Required area not exists!</div>");
+            throw new Exception("<div class=\"alert\">Specified area does not exist!</div>");
         } else {
             return area;
         }

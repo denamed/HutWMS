@@ -57,7 +57,7 @@ public class BuildingController {
             buildingService.create(building);
             List<Building> buildings = buildingService.findAll();
             model.addAttribute("buildings", buildings);
-            model.addAttribute("message", "Building successfully created.");
+            model.addAttribute("message", "Building created successfully.");
             return "building-list";
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
@@ -75,7 +75,7 @@ public class BuildingController {
         buildingService.edit(building);
         List<Building> buildings = buildingService.findAll();
         model.addAttribute("buildings", buildings);
-        model.addAttribute("message", "Building successfully edited.");
+        model.addAttribute("message", "Building edited successfully.");
         return "building-list";
     }
 
@@ -86,7 +86,7 @@ public class BuildingController {
     {
         try {
             buildingService.delete(buildId);
-            model.addAttribute("message", "Building successfully deleted.");
+            model.addAttribute("message", "Building deleted successfully.");
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
         }
