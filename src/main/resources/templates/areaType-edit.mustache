@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Area type edit</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+
+    <table class="table">
+        <caption>AREA TYPE EDIT</caption>
+        <thead>
+        <tr>
+            <th width="72"><form method="get"><button type="submit" formaction="/areaType">< Back</button></form></th>
+            <th colspan="2">{{#message}}{{{message}}}{{/message}}</th>
+            <th width="72"><form method="get">
+                <input type="number" name="areaTypeId" value="{{#areaType}}{{areaTypeId}}{{/areaType}}" hidden/>
+                <input type="text" name="areaTypeDesc" value="{{#areaType}}{{areaTypeDesc}}{{/areaType}}" hidden/>
+                <button type="submit" formaction="/areaType-edit">Reset</button>
+            </form></th>
+        </tr>
+        </thead>
+        <form method="post">
+            <tr>
+                <td colspan="2"><label>Area Type ID:</label></td>
+                <td><input type="number" name="areaTypeId" value="{{#areaType}}{{areaTypeId}}{{/areaType}}" hidden required/>
+                    <input type="number" value="{{#areaType}}{{areaTypeId}}{{/areaType}}" disabled required/></td>
+                <td></td>
+            </tr><tr>
+            <td colspan="2"><label>Area type name:</label></td>
+            <td><input type="text" maxlength="16" name="areaTypeDesc" value="{{#areaType}}{{areaTypeDesc}}{{/areaType}}" required/></td>
+            <td></td>
+        </tr><tr>
+            <td colspan="4"><button type="submit" formaction="/areaType-edit">Edit</button></td>
+        </tr>
+        </form>
+    </table>
+
+</td></tr></table>
+</body>
+</html>
