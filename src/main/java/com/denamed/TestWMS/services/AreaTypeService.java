@@ -41,10 +41,5 @@ public class AreaTypeService {
         areaTypeRepository.save(areaType);
     }
 
-    public AreaType saveAreaType(AreaType areaType) {
-
-        return areaTypeRepository.save(areaType);
-    }
-
     public void deleteAreaType (int areaTypeId){ areaTypeRepository.deleteById(areaTypeId);}
 }
