@@ -20,9 +20,17 @@ table {
 	font-weight: bold;
 	font-size: 20px;
 }
-.table th {
+.table thead th {
 	height: 25px;
 	vertical-align: middle;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px #666666;
+	background: #F0F0F0;
+}
+.table tfoot th {
+	height: 25px;
+	vertical-align: middle;
+	text-align: left;
 	font-weight: bold;
 	text-shadow: 1px 1px 2px #666666;
 	background: #F0F0F0;
