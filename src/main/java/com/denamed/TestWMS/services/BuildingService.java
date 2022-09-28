@@ -34,11 +34,11 @@ public class BuildingService {
         }
     }
 
-    public Building createBuilding(Building building) throws Exception{
+    public void createBuilding(Building building) throws Exception{
         if(buildingRepository.existsById(building.getBuildId())) {
             throw new Exception("<div class=\"alert\">Building " + building.getBuildId() + " already exists!</div>");
         } else {
-            return buildingRepository.save(building);
+            buildingRepository.save(building);
         }
     }
 

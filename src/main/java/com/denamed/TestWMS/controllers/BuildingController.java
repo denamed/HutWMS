@@ -68,7 +68,7 @@ public class BuildingController {
     }
 
     @GetMapping("/building-create")
-    public String buildingCreate(Model model) {
+    public String buildingCreate() {
         return "building-create";
     }
 
