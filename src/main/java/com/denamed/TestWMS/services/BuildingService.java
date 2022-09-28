@@ -16,16 +16,17 @@ public class BuildingService {
     private final ModuleRepository moduleRepository;
 
     @Autowired
-    public BuildingService(BuildingRepository buildingRepository, ModuleRepository moduleRepository) {
+    public BuildingService(BuildingRepository buildingRepository,
+                           ModuleRepository moduleRepository)
+    {
         this.buildingRepository = buildingRepository;
         this.moduleRepository = moduleRepository;
     }
 
-    public List<Building> findAll(){
-        return buildingRepository.findByOrderByBuildIdAsc();
-    }
+    public List<Building> findAll(){ return buildingRepository.findByOrderByBuildIdAsc(); }
 
-    public Optional<Building> findById(int buildId) throws Exception {
+    public Optional<Building> findById(int buildId) throws Exception
+    {
         Optional<Building> building = buildingRepository.findById(buildId);
         if(building.isEmpty()) {
             throw new Exception("<div class=\"alert\">Required building not exists!</div>");
@@ -34,24 +35,23 @@ public class BuildingService {
         }
     }
 
-    public Building createBuilding(Building building) throws Exception{
-        if(buildingRepository.existsById(building.getBuildId())) {
-            throw new Exception("<div class=\"alert\">Building " + building.getBuildId() + " already exists!</div>");
+    public void create(Building building) throws Exception
+    {
+        if (buildingRepository.existsById(building.getBuildId())) {
+            throw new Exception("<div class=\"alert\">Building " + building.getBuildId() + " is already exist!</div>");
         } else {
-            return buildingRepository.save(building);
+            buildingRepository.save(building);
         }
     }
 
-    public void editBuilding(Building building) {
-        buildingRepository.save(building);
-    }
+    public void edit(Building building) { buildingRepository.save(building); }
 
-    public void deleteBuilding(int buildId) throws Exception{
+    public void delete(int buildId) throws Exception
+    {
         if (moduleRepository.existsByBuildId(buildId)) {
             throw new Exception("<div class=\"alert\">Building " + buildId + " have the modules!</div>");
         } else {
             buildingRepository.deleteById(buildId);
         }
     }
-
 }

@@ -15,35 +15,26 @@ public class BuildingController {
     private final BuildingService buildingService;
 
     @Autowired
-    public BuildingController(BuildingService buildingService){
-        this.buildingService = buildingService;
-    }
+    public BuildingController(BuildingService buildingService) { this.buildingService = buildingService; }
 
+    // Get list Building
     @GetMapping("/building")
-    public String buildingList(Model model) {
+    public String getList(Model model)
+    {
         List<Building> buildings = buildingService.findAll();
         model.addAttribute("buildings", buildings);
         return "building-list";
     }
 
-    @PostMapping("/building-delete")
-    public String buildingDelete(@RequestParam Integer buildId, Model model) {
-        try {
-            buildingService.deleteBuilding(buildId);
-            List<Building> buildings = buildingService.findAll();
-            model.addAttribute("buildings", buildings);
-            model.addAttribute("message", "Building successfully deleted.");
-            return "building-list";
-        } catch (Exception e) {
-            model.addAttribute("message", e.getMessage());
-            List<Building> buildings = buildingService.findAll();
-            model.addAttribute("buildings", buildings);
-            return "building-list";
-        }
-    }
+    // Get create Building
+    @GetMapping("/building-create")
+    public String getCreate() { return "building-create"; }
 
+    // Get edit Building
     @GetMapping("/building-edit")
-    public String buildingEdit(@RequestParam Integer buildId, Model model) {
+    public String getEdit(@RequestParam Integer buildId,
+                          Model model)
+    {
         try {
             Building building = buildingService.findById(buildId).get();
             model.addAttribute("building", building);
@@ -55,38 +46,52 @@ public class BuildingController {
         }
     }
 
-    @PostMapping("/building-edit")
-    public String editBuilding(@RequestParam Integer buildId,
-                               @RequestParam String buildName,
-                               Model model) {
+    // Post create Building
+    @PostMapping("/building-create")
+    public String postCreate(@RequestParam Integer buildId,
+                             @RequestParam String buildName,
+                             Model model)
+    {
         Building building = new Building(buildId, buildName);
-        buildingService.editBuilding(building);
+        try {
+            buildingService.create(building);
+            List<Building> buildings = buildingService.findAll();
+            model.addAttribute("buildings", buildings);
+            model.addAttribute("message", "Building successfully created.");
+            return "building-list";
+        } catch (Exception e) {
+            model.addAttribute("message", e.getMessage());
+            return "building-create";
+        }
+    }
+
+    // Post edit Building
+    @PostMapping("/building-edit")
+    public String postEdit(@RequestParam Integer buildId,
+                           @RequestParam String buildName,
+                           Model model)
+    {
+        Building building = new Building(buildId, buildName);
+        buildingService.edit(building);
         List<Building> buildings = buildingService.findAll();
         model.addAttribute("buildings", buildings);
         model.addAttribute("message", "Building successfully edited.");
         return "building-list";
     }
 
-    @GetMapping("/building-create")
-    public String buildingCreate(Model model) {
-        return "building-create";
-    }
-
-    @PostMapping("/building-create")
-    public String addBuilding(@RequestParam Integer buildId,
-                              @RequestParam String buildName,
-                              Model model)
+    // Post delete Building
+    @PostMapping("/building-delete")
+    public String postDelete(@RequestParam Integer buildId,
+                             Model model)
     {
-        Building building = new Building(buildId, buildName);
         try {
-            buildingService.createBuilding(building);
-            List<Building> buildings = buildingService.findAll();
-            model.addAttribute("buildings", buildings);
-            model.addAttribute("message", "Building successfully created.");
-            return "building-list";
-        } catch(Exception e) {
+            buildingService.delete(buildId);
+            model.addAttribute("message", "Building successfully deleted.");
+        } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
-            return "building-create";
         }
+        List<Building> buildings = buildingService.findAll();
+        model.addAttribute("buildings", buildings);
+        return "building-list";
     }
 }

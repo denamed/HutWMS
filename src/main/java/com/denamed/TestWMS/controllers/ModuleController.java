@@ -18,13 +18,15 @@ public class ModuleController {
     private final BuildingService buildingService;
 
     @Autowired
-    public ModuleController(ModuleService moduleService, BuildingService buildingService) {
+    public ModuleController(ModuleService moduleService, BuildingService buildingService)
+    {
         this.moduleService = moduleService;
         this.buildingService = buildingService;
     }
 
     @GetMapping("/module")
-    public String module(Model model) {
+    public String getList(Model model)
+    {
         List<Module> modules = moduleService.findAll();
         List<Building> buildings = buildingService.findAll();
         model.addAttribute("modules", modules);
@@ -33,10 +35,11 @@ public class ModuleController {
     }
 
     @PostMapping("/module")
-    public String addModule(@RequestParam Integer modulId,
-                            @RequestParam Integer buildId,
-                            @RequestParam String modulDesc,
-                            Model model) {
+    public String postCreate(@RequestParam Integer modulId,
+                             @RequestParam Integer buildId,
+                             @RequestParam String modulDesc,
+                             Model model)
+    {
         Module module = new Module(modulId, buildId, modulDesc);
         moduleService.saveModule(module);
         Iterable<Module> modules = moduleService.findAll();
