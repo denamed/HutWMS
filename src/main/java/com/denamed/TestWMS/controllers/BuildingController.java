@@ -54,7 +54,7 @@ public class BuildingController {
     {
         Building building = new Building(buildId, buildName);
         try {
-            buildingService.createBuilding(building);
+            buildingService.create(building);
             List<Building> buildings = buildingService.findAll();
             model.addAttribute("buildings", buildings);
             model.addAttribute("message", "Building successfully created.");
@@ -72,7 +72,7 @@ public class BuildingController {
                            Model model)
     {
         Building building = new Building(buildId, buildName);
-        buildingService.editBuilding(building);
+        buildingService.edit(building);
         List<Building> buildings = buildingService.findAll();
         model.addAttribute("buildings", buildings);
         model.addAttribute("message", "Building successfully edited.");
@@ -85,7 +85,7 @@ public class BuildingController {
                              Model model)
     {
         try {
-            buildingService.deleteBuilding(buildId);
+            buildingService.delete(buildId);
             model.addAttribute("message", "Building successfully deleted.");
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());

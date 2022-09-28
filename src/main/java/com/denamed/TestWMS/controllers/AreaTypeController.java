@@ -54,7 +54,7 @@ public class AreaTypeController {
     {
         AreaType areaType = new AreaType(areaTypeId, areaTypeDesc);
         try {
-            areaTypeService.areaTypeCreate(areaType);
+            areaTypeService.create(areaType);
             List <AreaType> areaTypes = areaTypeService.findAll();
             model.addAttribute("areaTypes", areaTypes);
             model.addAttribute("message", "Area type successfully created.");
@@ -72,7 +72,7 @@ public class AreaTypeController {
                            Model model)
     {
         AreaType areaType = new AreaType(areaTypeId, areaTypeDesc);
-        areaTypeService.areaTypeEdit(areaType);
+        areaTypeService.edit(areaType);
         List<AreaType> areaTypes = areaTypeService.findAll();
         model.addAttribute("areaTypes",areaTypes);
         model.addAttribute("message", "Area type successfully edited.");
@@ -85,7 +85,7 @@ public class AreaTypeController {
                              Model model)
     {
         try {
-            areaTypeService.deleteAreaType(areaTypeId);
+            areaTypeService.delete(areaTypeId);
             model.addAttribute("message", "Area type successfully deleted.");
         } catch (Exception e) {
             model.addAttribute("message", "Unable to delete!");
