@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Module edit</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+
+    <table class="table">
+        <caption>MODULE EDIT</caption>
+        <thead>
+        <tr>
+            <th width="72"><form method="get"><button type="submit" formaction="/module">< Back</button></form></th>
+            <th colspan="2">{{#message}}{{{message}}}{{/message}}</th>
+            <th width="72"><form method="get">
+                <input type="number" name="modulId" value="{{#module}}{{modulId}}{{/module}}" hidden/>
+                <input type="text" name="modulDesc" value="{{#module}}{{modulDesc}}{{/module}}" hidden/>
+                <input type="number" name="buildId" value="{{#module}}{{buildId}}{{/module}}" hidden/>
+                <button type="submit" formaction="/module-edit">Reset</button>
+            </form></th>
+        </tr>
+        </thead>
+        <form method="post">
+            <tr>
+                <td colspan="2"><label>Module ID:</label></td>
+                <td><input type="number" name="modulId" value="{{#module}}{{modulId}}{{/module}}" hidden required/>
+                    <input type="number" value="{{#module}}{{modulId}}{{/module}}" disabled required/></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="2"><label>Module description:</label></td>
+                <td><input type="text" maxlength="16" name="modulDesc" value="{{#module}}{{modulDesc}}{{/module}}" required/></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="2"><label>Building ID:</label></td>
+                <td><input type="number" min="1" max="99" name="buildId" value="{{#module}}{{buildId}}{{/module}}" required/></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="4"><button type="submit" formaction="/module-edit">Edit</button></td>
+            </tr>
+        </form>
+    </table>
+
+</td></tr></table>
+</body>
+</html>

@@ -1,39 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>MODULES INFO</title>
+    <title>MODULES</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-<div><a href="/">Return back</a></div>
-<div><H2>MODULES</H2></div>
-<table width="720">
-    <tr><td width="100"><B>ID</B></td><td><B>Description</B></td><td width="100"><B>Building ID</B></td></tr>
-    {{#modules}}
-        <tr><td>{{modulId}}</td><td>{{modulDesc}}</td><td>{{buildId}}</td></tr>
-    {{/modules}}
-    {{^modules}}
-        <tr><td colspan="3"><h3>No modules added yet.</h3></td></tr>
-    {{/modules}}
+<table width="100%" class="body"><tr><td align="center">
+
+<table class="table">
+    <caption>MODULES</caption>
+    <thead>
+    <tr>
+        <th><form method="get"><button type="submit" formaction="/">< Back</button></form></th>
+        <th width="100%" colspan="3">{{#message}}{{{message}}}{{/message}}</th>
+        <th><form method="get"><button type="submit" formaction="/module">Refresh</button></form></th>
+    </tr>
+    <tr>
+        <th width="72" align="left">ID</th>
+        <th align="left">Description</th>
+        <th colspan="3" align="left">Building ID</th>
+    </tr>
+    </thead>
+{{#modules}}
+    <tr>
+        <td>{{modulId}}</td>
+        <td>{{modulDesc}}</td>
+        <td width="100%">{{buildId}}</td>
+        <td width="72"><form method="get">
+            <input type="number" value="{{modulId}}" name="modulId" hidden/>
+            <button type="submit" formaction="/module-edit">Edit</button>
+        </form></td>
+        <td width="72"><form method="post">
+            <input type="number" value="{{modulId}}" name="modulId" hidden/>
+            <button type="submit" formaction="/module-delete" onclick="return confirm('Are you sure?');">Delete</button>
+        </form></td>
+    </tr>
+{{/modules}}
+{{^modules}}
+    <tr><td colspan="5">No modules added yet.</td></tr>
+{{/modules}}
+    <tfoot><tr><th colspan="5"><form method="get"><button type="submit" formaction="/module-create">Add +</button></form></th></tr></tfoot>
 </table>
 
-<div><h4>Add or update the building:</h4>
-    <form method="post">
-        <table width="800"><tr><td>
-            <label>Module ID:</label>
-            <input type="number" min="1" max="99" name="modulId" required/>
-            <label>Description:</label>
-            <input type="text" maxlength="16" name="modulDesc" required/>
-            <label for="blist">Parent building:</label>
-            <select name="buildId" id="blist" required>
-                <option value=""></option>
-                {{#buildings}}
-                    <option value="{{buildId}}">{{buildId}} {{buildName}}</option>
-                {{/buildings}}
-            </select>
-        </td></tr></table>
-        <button type="submit">Add/Update</button>
-    </form>
-</div>
+</td></tr></table>
 </body>
 </html>
+
+

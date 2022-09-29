@@ -48,9 +48,16 @@ public class ModuleController {
     public String getEdit (@RequestParam Integer modulId,
                            Model model)
     {
-        Optional<Module> module = moduleService.findById(modulId);
-        model.addAttribute("module", module);
-        return "module-edit";
+        try {
+            Module module = moduleService.findById(modulId).get();
+            model.addAttribute("module", module);
+            return "module-edit";
+        }catch(Exception e){
+            model.addAttribute("message", e.getMessage());
+            List<Module> modules = moduleService.findAll();
+            model.addAttribute("modules", modules);
+            return "module-list";
+        }
     }
 
     @PostMapping("/module-create")
@@ -73,5 +80,35 @@ public class ModuleController {
     }
 
     //Post edit
+    @PostMapping("/module-edit")
+    public String postEdit(@RequestParam int modulId,
+                           @RequestParam String modulDesc,
+                           @RequestParam int buildId,
+                           Model model)
+    {
+       Module module = new Module(modulId, buildId, modulDesc);
+       moduleService.edit(module);
+       List<Module> modules = moduleService.findAll();
+       model.addAttribute("modules", modules);
+       model.addAttribute("message", "Module edited successfully.");
+       return "module-list";
+    }
+
     //Post delete
+    @PostMapping("/module-delete")
+    public String postDelete (@RequestParam int modulId,
+                              Model model)
+    {
+        try{
+            moduleService.delete(modulId);
+            model.addAttribute("message", "Module deleted successfully.");
+        }catch(Exception e){
+            model.addAttribute("message", e.getMessage());
+        }
+
+        List<Module> modules = moduleService.findAll();
+        model.addAttribute("modules", modules);
+        return "module-list";
+    }
+
 }
