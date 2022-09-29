@@ -1,38 +1,52 @@
 package com.denamed.TestWMS.services;
 
 import com.denamed.TestWMS.entities.Module;
-import com.denamed.TestWMS.repositories.BuildingRepository;
+import com.denamed.TestWMS.repositories.AreaRepository;
 import com.denamed.TestWMS.repositories.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ModuleService {
 
     private final ModuleRepository moduleRepository;
-    private final BuildingRepository buildingRepository;
+    private final AreaRepository areaRepository;
 
     @Autowired
-    public ModuleService(ModuleRepository moduleRepository, BuildingRepository buildingRepository) {
+    public ModuleService(ModuleRepository moduleRepository,
+                         AreaRepository areaRepository)
+    {
         this.moduleRepository = moduleRepository;
-        this.buildingRepository = buildingRepository;
+        this.areaRepository = areaRepository;
     }
 
     public List<Module> findAll() {
         return moduleRepository.findAll();
     }
 
-    public Module saveModule(Module module){
-        if(buildingRepository.existsById(module.getBuildId())) {
-            return moduleRepository.save(module);
+    public Optional<Module> findById(int modulId) { return moduleRepository.findById(modulId); }
+
+    //create
+    public void create(Module module) throws Exception
+    {
+        if (moduleRepository.existsById(module.getModulId())){
+            throw new Exception("<div class=\"alert\">Module " + module.getModulId() + " is already exist!</div>");
         } else {
-            /* add message */
-            return module;
+            moduleRepository.save(module);
         }
     }
 
-    public void deleteModule(int modulId) {
-        moduleRepository.deleteById(modulId);
+    //edit
+    public void edit(Module module){ moduleRepository.save(module); }
+
+    public void delete(int modulId) throws Exception
+    {
+        if (areaRepository.existsByModulId(modulId)){
+           throw new Exception("<div class=\"alert\">Module " + modulId + " have the areas!</div>");
+        } else {
+            moduleRepository.deleteById(modulId);
+        }
     }
 }
