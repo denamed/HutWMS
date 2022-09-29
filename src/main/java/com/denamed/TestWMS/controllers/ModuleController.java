@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ModuleController {
@@ -24,6 +25,7 @@ public class ModuleController {
         this.buildingService = buildingService;
     }
 
+    //Get list module
     @GetMapping("/module")
     public String getList(Model model)
     {
@@ -34,18 +36,42 @@ public class ModuleController {
         return "module-list";
     }
 
-    @PostMapping("/module")
+    //Get create
+    @GetMapping("/module-create")
+    public String getCreate(Model model)
+    {
+        return "module-create";
+    }
+
+    //Get edit
+    @GetMapping("/module-edit")
+    public String getEdit (@RequestParam Integer modulId,
+                           Model model)
+    {
+        Optional<Module> module = moduleService.findById(modulId);
+        model.addAttribute("module", module);
+        return "module-edit";
+    }
+
+    @PostMapping("/module-create")
     public String postCreate(@RequestParam Integer modulId,
                              @RequestParam Integer buildId,
                              @RequestParam String modulDesc,
                              Model model)
     {
         Module module = new Module(modulId, buildId, modulDesc);
-        moduleService.saveModule(module);
-        Iterable<Module> modules = moduleService.findAll();
-        List<Building> buildings = buildingService.findAll();
-        model.addAttribute("modules", modules);
-        model.addAttribute("buildings", buildings);
-        return "module-list";
+        try {
+            moduleService.create(module);
+            List<Module> modules = moduleService.findAll();
+            model.addAttribute("modules", modules);
+            model.addAttribute("message", "Module created successfully.");
+            return "module-list";
+        } catch (Exception e){
+            model.addAttribute("message", e.getMessage());
+            return "module-create";
+        }
     }
+
+    //Post edit
+    //Post delete
 }
