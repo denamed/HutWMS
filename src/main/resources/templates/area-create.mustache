@@ -27,12 +27,22 @@
             <td><input type="text" maxlength="16" name="areaName" required/></td>
             <td></td>
             </tr><tr>
-                <td colspan="2"><label>Area type:</label></td>
-                <td><input type="number" min="1" max="999" name="areaTypeId" required/></td>
+                <td colspan="2"><label>Area Type:</label></td>
+                <td><select name="areaTypeId" required>
+                    <option></option>
+                    {{#areaTypes}}
+                        <option value="{{areaTypeId}}">{{areaTypeId}}. {{areaTypeDesc}}</option>
+                    {{/areaTypes}}
+                </select></td>
                 <td></td>
             </tr><tr>
-                <td colspan="2"><label>Module ID:</label></td>
-                <td><input type="number" min="1" max="99" name="modulId" required/></td>
+                <td colspan="2"><label>Module:</label></td>
+                <td><select name="modulId" required>
+                    <option></option>
+                    {{#modules}}
+                        <option value="{{modulId}}">{{modulId}}. {{modulDesc}}</option>
+                    {{/modules}}
+                </select></td>
                 <td></td>
             </tr><tr>
                 <td colspan="4"><button type="submit">Add</button></td>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Area edit</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+
+    <table class="table">
+        <caption>AREA EDIT</caption>
+        <thead>
+        <tr>
+            <th width="72"><form method="get"><button type="submit" formaction="/area">< Back</button></form></th>
+            <th colspan="2">{{#message}}{{{message}}}{{/message}}</th>
+            <th width="72"><form method="get">
+                <input type="number" name="areaId" value="{{#area}}{{areaId}}{{/area}}" hidden/>
+                <input type="text" name="areaName" value="{{#area}}{{areaName}}{{/area}}" hidden/>
+                <input type="number" name="areaTypeId" value="{{#area}}{{areaTypeId}}{{/area}}" hidden/>
+                <input type="number" name="modulId" value="{{#area}}{{modulId}}{{/area}}" hidden/>
+                <button type="submit" formaction="/area-edit">Reset</button>
+            </form></th>
+        </tr>
+        </thead>
+        <form method="post">
+            <tr>
+                <td colspan="2"><label>Area ID:</label></td>
+                <td><input type="number" name="areaId" value="{{#area}}{{areaId}}{{/area}}" hidden required/>
+                    <input type="number" value="{{#area}}{{areaId}}{{/area}}" disabled/></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="2"><label>Area Name:</label></td>
+                <td><input type="text" maxlength="16" name="areaName" value="{{#area}}{{areaName}}{{/area}}" required/></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="2"><label>Area Type:</label></td>
+                <td><select name="areaTypeId" required>
+                    <option value="{{#area}}{{areaTypeId}}{{/area}}" selected>{{#area}}{{areaTypeId}}{{/area}}</option>
+                    {{#areaTypes}}
+                    <option value="{{areaTypeId}}">{{areaTypeId}}. {{areaTypeDesc}}</option>
+                    {{/areaTypes}}
+                </select></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="2"><label>Module:</label></td>
+                <td><select name="modulId" required>
+                    <option value="{{#area}}{{modulId}}{{/area}}" selected>{{#area}}{{modulId}}{{/area}}</option>
+                    {{#modules}}
+                        <option value="{{modulId}}">{{modulId}}. {{modulDesc}}</option>
+                    {{/modules}}
+                </select></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="4"><button type="submit" formaction="/area-edit">Edit</button></td>
+            </tr>
+        </form>
+    </table>
+
+</td></tr></table>
+</body>
+</html>

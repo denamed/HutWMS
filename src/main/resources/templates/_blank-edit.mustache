@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 <!-- REPLACE TITLE NAME -->
-    <title>********* create</title>
+    <title>********* edit</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -18,7 +18,7 @@
             <th width="72"><form method="get"><button type="submit" formaction="/*********">< Back</button></form></th>
             <th colspan="2">{{#message}}{{{message}}}{{/message}}</th>
             <th width="72"><form method="get">
-<!-- REPLACE RESET BUTTON DESTINATION -->
+<!-- REPLACE RESET BUTTON DESTINATION AND TRANSMITTED VARIABLES -->
                 <input type="number" name="*********buildId" value="{{#*********building}}{{*********buildId}}{{/*********building}}" hidden/>
                 <input type="text" name="*********buildName" value="{{#*********building}}{{*********buildName}}{{/*********building}}" hidden/>
                 <button type="submit" formaction="/*********-edit">Reset</button>
@@ -26,19 +26,19 @@
         </tr>
         </thead>
         <form method="post">
+<!-- REPLACE FIELDS LABELS AND VARIABLES NAMES -->
             <tr>
                 <td colspan="2"><label>********* ID:</label></td>
-<!-- REPLACE FIELDS LABELS AND VARIABLES NAMES -->
                 <td><input type="number" name="*********buildId" value="{{#*********building}}{{*********buildId}}{{/*********building}}" hidden required/>
                     <input type="number" value="{{#*********building}}{{*********buildId}}{{/*********building}}" disabled required/></td>
                 <td></td>
             </tr><tr>
-            <td colspan="2"><label>********* Name:</label></td>
-            <td><input type="text" maxlength="16" name="*********buildName" value="{{#*********building}}{{*********buildName}}{{/*********building}}" required/></td>
-            <td></td>
-        </tr><tr>
-            <td colspan="4"><button type="submit" formaction="/*********-edit">Edit</button></td>
-        </tr>
+                <td colspan="2"><label>********* Name:</label></td>
+                <td><input type="text" maxlength="16" name="*********buildName" value="{{#*********building}}{{*********buildName}}{{/*********building}}" required/></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="4"><button type="submit" formaction="/*********-edit">Edit</button></td>
+            </tr>
         </form>
     </table>
 
