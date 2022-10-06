@@ -45,9 +45,6 @@ public class AreaController {
     // Get edit Area
     @GetMapping("/area-edit")
     public String getEdit(@RequestParam Integer areaId,
-                          @RequestParam String areaName,
-                          @RequestParam short areaTypeId,
-                          @RequestParam int modulId,
                           Model model)
     {
         try {
