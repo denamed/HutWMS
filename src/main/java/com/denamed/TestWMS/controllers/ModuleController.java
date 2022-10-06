@@ -10,8 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import java.util.List;
-import java.util.Optional;
+
+import java.util.*;
 
 @Controller
 public class ModuleController {
@@ -25,14 +25,36 @@ public class ModuleController {
         this.buildingService = buildingService;
     }
 
+    public ArrayList modulesDecorated()
+    {
+        List<Module> modules = moduleService.findAll();
+        List<Building> buildings = buildingService.findAll();
+        Map<Integer, String> buildings1= new HashMap<Integer, String>();
+        for (Building b: buildings) { buildings1.put(b.getBuildId(), b.getBuildName()); }
+        ArrayList<Map> modules1 = new ArrayList<Map>();
+        for (Module module: modules)
+        {
+            Map<String, String> a = new HashMap<>();
+            a.put("modulId", "" + module.getModulId());
+            a.put("modulDesc", module.getModulDesc() );
+            int buildingId = module.getBuildId();
+            String buildingName;
+            if ( buildings1.get(buildingId) == null ) {
+                buildingName = buildingId + " ...";
+            } else {
+                buildingName = buildingId + " " + buildings1.get(buildingId);
+            }
+            a.put("buildId", buildingName);
+            modules1.add(a);
+        }
+        return modules1;
+    }
+
     //Get list module
     @GetMapping("/module")
     public String getList(Model model)
     {
-        List<Module> modules = moduleService.findAll();
-        List<Building> buildings = buildingService.findAll();
-        model.addAttribute("modules", modules);
-        model.addAttribute("buildings", buildings);
+        model.addAttribute("modules", modulesDecorated());
         return "module-list";
     }
 
@@ -54,8 +76,7 @@ public class ModuleController {
             return "module-edit";
         }catch(Exception e){
             model.addAttribute("message", e.getMessage());
-            List<Module> modules = moduleService.findAll();
-            model.addAttribute("modules", modules);
+            model.addAttribute("modules", modulesDecorated());
             return "module-list";
         }
     }
@@ -69,8 +90,7 @@ public class ModuleController {
         Module module = new Module(modulId, buildId, modulDesc);
         try {
             moduleService.create(module);
-            List<Module> modules = moduleService.findAll();
-            model.addAttribute("modules", modules);
+            model.addAttribute("modules", modulesDecorated());
             model.addAttribute("message", "Module created successfully.");
             return "module-list";
         } catch (Exception e){
@@ -88,8 +108,7 @@ public class ModuleController {
     {
        Module module = new Module(modulId, buildId, modulDesc);
        moduleService.edit(module);
-       List<Module> modules = moduleService.findAll();
-       model.addAttribute("modules", modules);
+       model.addAttribute("modules", modulesDecorated());
        model.addAttribute("message", "Module edited successfully.");
        return "module-list";
     }
@@ -105,9 +124,7 @@ public class ModuleController {
         }catch(Exception e){
             model.addAttribute("message", e.getMessage());
         }
-
-        List<Module> modules = moduleService.findAll();
-        model.addAttribute("modules", modules);
+        model.addAttribute("modules", modulesDecorated());
         return "module-list";
     }
 
