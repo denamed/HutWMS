@@ -29,25 +29,25 @@ public class ModuleController {
     {
         List<Module> modules = moduleService.findAll();
         List<Building> buildings = buildingService.findAll();
-        Map<Integer, String> buildings1= new HashMap<Integer, String>();
-        for (Building b: buildings) { buildings1.put(b.getBuildId(), b.getBuildName()); }
-        ArrayList<Map> modules1 = new ArrayList<Map>();
+        Map<Integer, String> buildingMap= new HashMap<Integer, String>();
+        for (Building b: buildings) { buildingMap.put(b.getBuildId(), b.getBuildName()); }
+        ArrayList<Map> moduleListDecore = new ArrayList<Map>();
         for (Module module: modules)
         {
-            Map<String, String> a = new HashMap<>();
-            a.put("modulId", "" + module.getModulId());
-            a.put("modulDesc", module.getModulDesc() );
+            Map<String, String> tempMap = new HashMap<>();
+            tempMap.put("modulId", "" + module.getModulId());
+            tempMap.put("modulDesc", module.getModulDesc() );
             int buildingId = module.getBuildId();
             String buildingName;
-            if ( buildings1.get(buildingId) == null ) {
+            if ( buildingMap.get(buildingId) == null ) {
                 buildingName = buildingId + " ...";
             } else {
-                buildingName = buildingId + " " + buildings1.get(buildingId);
+                buildingName = buildingId + " " + buildingMap.get(buildingId);
             }
-            a.put("buildId", buildingName);
-            modules1.add(a);
+            tempMap.put("buildId", buildingName);
+            moduleListDecore.add(tempMap);
         }
-        return modules1;
+        return moduleListDecore;
     }
 
     //Get list module
