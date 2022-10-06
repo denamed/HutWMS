@@ -27,10 +27,17 @@
                 <td><input type="text" maxlength="16" name="modulDesc" required/></td>
                 <td></td>
             </tr><tr>
-                <td colspan="2"><label>Building ID:</label></td>
-                <td><input type="number" min="1" max ="99" name="buildId" required/></td>
-                <td></td>
-            </tr><tr>
+            <td colspan="2"><label>Building ID:</label></td>
+            <td><select name="buildId">
+                <option></option>
+                {{#buildings}}
+                <option value="{{buildId}}">{{buildId}} {{buildName}}</option>
+                {{/buildings}}
+            </select></td>
+            <td></td>
+            </tr>
+            <tr>
+
 
                 <td colspan="4"><button type="submit">Add</button></td>
             </tr>

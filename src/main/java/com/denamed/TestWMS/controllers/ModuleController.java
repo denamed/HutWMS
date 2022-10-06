@@ -62,6 +62,7 @@ public class ModuleController {
     @GetMapping("/module-create")
     public String getCreate(Model model)
     {
+        model.addAttribute("buildings", buildingService.findAll());
         return "module-create";
     }
 
@@ -73,6 +74,7 @@ public class ModuleController {
         try {
             Module module = moduleService.findById(modulId).get();
             model.addAttribute("module", module);
+            model.addAttribute("buildings", buildingService.findAll());
             return "module-edit";
         }catch(Exception e){
             model.addAttribute("message", e.getMessage());
