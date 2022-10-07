@@ -16,8 +16,7 @@
             <th colspan="2">{{#message}}{{{message}}}{{/message}}</th>
             <th width="72"><form method="get">
                 <input type="number" name="modulId" value="{{#module}}{{modulId}}{{/module}}" hidden/>
-                <input type="text" name="modulDesc" value="{{#module}}{{modulDesc}}{{/module}}" hidden/>
-                <input type="number" name="buildId" value="{{#module}}{{buildId}}{{/module}}" hidden/>
+                <input type="text" name="buildName" value="{{buildName}}" hidden/>
                 <button type="submit" formaction="/module-edit">Reset</button>
             </form></th>
         </tr>
@@ -33,11 +32,16 @@
                 <td><input type="text" maxlength="16" name="modulDesc" value="{{#module}}{{modulDesc}}{{/module}}" required/></td>
                 <td></td>
             </tr><tr>
-                <td colspan="2"><label>Building ID:</label></td>
-                <td><input type="number" min="1" max="99" name="buildId" value="{{#module}}{{buildId}}{{/module}}" required/></td>
-                <td></td>
-            </tr><tr>
-                <td colspan="4"><button type="submit" formaction="/module-edit">Edit</button></td>
+            <td colspan="2"><label>Building ID:</label></td>
+            <td><select name="buildId">
+                <option value="{{#module}}{{buildId}}{{/module}}" selected>{{#module}}{{buildId}}{{/module}}. {{buildName}} (current)</option>
+                {{#buildings}}
+                    <option value="{{buildId}}">{{buildId}}. {{buildName}}</option>
+                {{/buildings}}
+            </select></td>
+            <td></td>
+        </tr><tr>
+                <td colspan="4"><button type="submit" formaction="/module-edit">Save</button></td>
             </tr>
         </form>
     </table>

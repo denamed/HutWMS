@@ -54,11 +54,18 @@ public class AreaController {
 
             int areaTypeId = area.getAreaTypeId();
             tempMap.put("areaTypeId", areaTypeId+"");
-            tempMap.put("areaTypeDesc", areaTypesMap.get(areaTypeId));
-
+            if (areaTypesMap.get(areaTypeId) == null){
+                tempMap.put("areaTypeDesc", "...");
+            }else {
+                tempMap.put("areaTypeDesc", areaTypesMap.get(areaTypeId));
+            }
             int modulId = area.getModulId();
             tempMap.put("modulId", modulId+"");
+            if(modulesMap.get(modulId) == null){
+                tempMap.put("modulDesc", "...");
+            }else {
             tempMap.put("modulDesc", modulesMap.get(modulId));
+            }
 
             areasDecoratedList.add(tempMap);
         }

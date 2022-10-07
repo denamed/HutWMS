@@ -37,14 +37,13 @@ public class ModuleController {
             Map<String, String> tempMap = new HashMap<>();
             tempMap.put("modulId", "" + module.getModulId());
             tempMap.put("modulDesc", module.getModulDesc() );
-            int buildingId = module.getBuildId();
-            String buildingName;
-            if ( buildingMap.get(buildingId) == null ) {
-                buildingName = buildingId + " ...";
-            } else {
-                buildingName = buildingId + " " + buildingMap.get(buildingId);
+            int buildId = module.getBuildId();
+            String buildName = "...";
+            if ( buildingMap.get(buildId) != null ) {
+                buildName = buildingMap.get(buildId);
             }
-            tempMap.put("buildId", buildingName);
+            tempMap.put("buildId", buildId+"");
+            tempMap.put("buildName", buildName);
             moduleListDecore.add(tempMap);
         }
         return moduleListDecore;
@@ -69,11 +68,13 @@ public class ModuleController {
     //Get edit
     @GetMapping("/module-edit")
     public String getEdit (@RequestParam Integer modulId,
+                           @RequestParam String buildName,
                            Model model)
     {
         try {
             Module module = moduleService.findById(modulId).get();
             model.addAttribute("module", module);
+            model.addAttribute("buildName", buildName);
             model.addAttribute("buildings", buildingService.findAll());
             return "module-edit";
         }catch(Exception e){

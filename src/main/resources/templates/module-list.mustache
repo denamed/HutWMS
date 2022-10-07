@@ -26,9 +26,10 @@
     <tr>
         <td>{{modulId}}</td>
         <td>{{modulDesc}}</td>
-        <td width="100%">{{buildId}}</td>
+        <td width="100%">{{buildId}}. {{buildName}}</td>
         <td width="72"><form method="get">
             <input type="number" value="{{modulId}}" name="modulId" hidden/>
+            <input type="text" value="{{buildName}}" name="buildName" hidden/>
             <button type="submit" formaction="/module-edit">Edit</button>
         </form></td>
         <td width="72"><form method="post">
