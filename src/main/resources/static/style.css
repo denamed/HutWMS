@@ -69,4 +69,10 @@ button:hover {
 }
 input {
   width: 200px;
+  height: 12px;
+}
+
+select {
+  width: 208px;
+  height: 18px;
 }

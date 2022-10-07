@@ -3,7 +3,6 @@ package com.denamed.TestWMS.services;
 import com.denamed.TestWMS.entities.Area;
 import com.denamed.TestWMS.repositories.AreaRepository;
 import com.denamed.TestWMS.repositories.LocationRepository;
-import com.denamed.TestWMS.repositories.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
