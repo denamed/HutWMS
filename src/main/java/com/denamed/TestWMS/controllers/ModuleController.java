@@ -29,9 +29,9 @@ public class ModuleController {
     {
         List<Module> modules = moduleService.findAll();
         List<Building> buildings = buildingService.findAll();
-        Map<Integer, String> buildingMap= new HashMap<Integer, String>();
+        Map<Integer, String> buildingMap= new HashMap<>();
         for (Building b: buildings) { buildingMap.put(b.getBuildId(), b.getBuildName()); }
-        ArrayList<Map> moduleListDecore = new ArrayList<Map>();
+        ArrayList<Map> moduleListDecore = new ArrayList<>();
         for (Module module: modules)
         {
             Map<String, String> tempMap = new HashMap<>();
