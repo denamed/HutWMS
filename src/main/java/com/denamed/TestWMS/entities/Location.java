@@ -55,14 +55,14 @@ public class Location {
     public Location() {
     }
 
-    public Location(short locatRow, short locatPlace, short locatLevel, short locatCapacity, short locatStatus, short locatTypeId, int areaId) {
+    public Location( int areaId, short locatRow, short locatPlace, short locatLevel, short locatCapacity, short locatStatus, short locatTypeId) {
+        this.areaId = areaId;
         this.locatRow = locatRow;
         this.locatPlace = locatPlace;
         this.locatLevel = locatLevel;
         this.locatCapacity = locatCapacity;
         this.locatStatus = locatStatus;
         this.locatTypeId = locatTypeId;
-        this.areaId = areaId;
     }
 
     public short getLocatRow() {

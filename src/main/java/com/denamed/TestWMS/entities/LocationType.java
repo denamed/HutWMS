@@ -13,7 +13,7 @@ public class LocationType {
 
     @Column(name = "locat_type_desc",
             columnDefinition = "TEXT",
-            length = 20)
+            length = 16)
     private String locatTypeDesc;
 
     public LocationType() {

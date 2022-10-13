@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>LOCATIONS</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+
+<table class="table">
+    <caption>LOCATIONS</caption>
+    <thead>
+    <tr>
+        <th><form method="get"><button type="submit" formaction="/">< Back</button></form></th>
+        <th width="100%" colspan="3">{{#message}}{{{message}}}{{/message}}</th>
+        <th><form method="get"><button type="submit" formaction="/location">Refresh</button></form></th>
+    </tr>
+    <tr>
+        <th width="72" align="left">Area</th>
+        <th>Row</th>
+        <th>Place</th>
+        <th>Level</th>
+        <th>Capacity</th>
+        <th>Status</th>
+        <th colspan="4" align="left">Type</th>
+    </tr>
+    </thead>
+
+    {{#locations}}
+        <tr>
+            <td>{{areaId}}</td>
+            <td>{{locatRow}}</td>
+            <td>{{locatPlace}}</td>
+            <td>{{locatLevel}}</td>
+            <td>{{locatCapacity}}</td>
+            <td>{{locatStatus}}</td>
+            <td>{{locatTypeId}}</td>
+            <td width="100%"></td>
+            <td width="72"><form method="get">
+                <input type="number" value="{{areaId}}" name="areaId" hidden/>
+                <input type="number" value="{{locatRow}}" name="locatRow" hidden/>
+                <input type="number" value="{{locatPlace}}" name="locatPlace" hidden/>
+                <input type="number" value="{{locatLevel}}" name="locatLevel" hidden/>
+                <button type="submit" formaction="/location-edit">Edit</button>
+            </form></td>
+            <td width="72"><form method="post">
+                <input type="number" value="{{areaId}}" name="areaId" hidden/>
+                <input type="number" value="{{locatRow}}" name="locatRow" hidden/>
+                <input type="number" value="{{locatPlace}}" name="locatPlace" hidden/>
+                <input type="number" value="{{locatLevel}}" name="locatLevel" hidden/>
+                <button type="submit" formaction="/location-delete" onclick="return confirm('Are you sure?');">Delete</button>
+            </form></td>
+        </tr>
+    {{/locations}}
+
+    {{^locations}}
+            <tr><td colspan="10">No locations added yet.</td></tr>
+    {{/locations}}
+
+<tfoot><tr><th colspan="5"><form method="get"><button type="submit" formaction="/location-create">Add +</button></form></th></tr></tfoot>
+</table>
+
+</td></tr></table>
+</body>
+</html>

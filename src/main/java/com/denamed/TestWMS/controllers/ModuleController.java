@@ -49,6 +49,7 @@ public class ModuleController {
         return moduleListDecore;
     }
 
+
     //Get list module
     @GetMapping("/module")
     public String getList(Model model)

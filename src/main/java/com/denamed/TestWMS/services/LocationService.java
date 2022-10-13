@@ -35,10 +35,16 @@ public class LocationService {
                 locatLevel);
     }
 
-//    public Location create(Location location) throws Exception
-//    {
-//        if(locationRepository.existsByAreaIdAndLocatRowAndLocatPlaceAndLocatLevel()){
-//            return locationRepository.save(location);
-//        }
-//    }
+    public void create(Location location) throws Exception {
+        if (locationRepository.existsByAreaIdAndLocatRowAndLocatPlaceAndLocatLevel(
+                                                                                    location.getAreaId(),
+                                                                                    location.getLocatRow(),
+                                                                                    location.getLocatPlace(),
+                                                                                    location.getLocatLevel())) {
+            throw new Exception("Location with entered coordinates is already exist.");
+        }else {
+            locationRepository.save(location);}
+    }
+
+
 }
