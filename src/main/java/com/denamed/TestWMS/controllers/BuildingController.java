@@ -23,12 +23,12 @@ public class BuildingController {
     {
         List<Building> buildings = buildingService.findAll();
         model.addAttribute("buildings", buildings);
-        return "building-list";
+        return "building\\list";
     }
 
     // Get create Building
     @GetMapping("/building-create")
-    public String getCreate() { return "building-create"; }
+    public String getCreate() { return "building\\create"; }
 
     // Get edit Building
     @GetMapping("/building-edit")
@@ -38,11 +38,11 @@ public class BuildingController {
         try {
             Building building = buildingService.findById(buildId).get();
             model.addAttribute("building", building);
-            return "building-edit";
+            return "building\\edit";
         } catch (Exception e) {
             model.addAttribute("buildings", buildingService.findAll());
             model.addAttribute("message", e.getMessage());
-            return "building-list";
+            return "building\\list";
         }
     }
 
@@ -58,10 +58,10 @@ public class BuildingController {
             List<Building> buildings = buildingService.findAll();
             model.addAttribute("buildings", buildings);
             model.addAttribute("message", "Building created successfully.");
-            return "building-list";
+            return "building\\list";
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
-            return "building-create";
+            return "building\\create";
         }
     }
 
@@ -76,7 +76,7 @@ public class BuildingController {
         List<Building> buildings = buildingService.findAll();
         model.addAttribute("buildings", buildings);
         model.addAttribute("message", "Building edited successfully.");
-        return "building-list";
+        return "building\\list";
     }
 
     // Post delete Building
@@ -92,6 +92,6 @@ public class BuildingController {
         }
         List<Building> buildings = buildingService.findAll();
         model.addAttribute("buildings", buildings);
-        return "building-list";
+        return "building\\list";
     }
 }

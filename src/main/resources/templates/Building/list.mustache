@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>BUILDINGS INFO</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+
+<table class="table">
+    <caption>BUILDINGS</caption>
+    <thead>
+    <tr>
+        <th><form method="get"><button type="submit" formaction="/">< Back</button></form></th>
+        <th width="100%" colspan="2">{{#message}}{{{message}}}{{/message}}</th>
+        <th><form method="get"><button type="submit" formaction="/building">Refresh</button></form></th>
+    </tr>
+    <tr><th width="72" align="left">ID</th><th colspan="3" align="left">Description</th></tr>
+    </thead>
+    {{#buildings}}
+        <tr>
+            <td>{{buildId}}</td>
+            <td width="100%">{{buildName}}</td>
+            <td width="72"><form method="get">
+                <input type="number" value="{{buildId}}" name="buildId" hidden/>
+                <button type="submit" formaction="/building-edit">Edit</button>
+            </form></td>
+            <td width="72"><form method="post">
+                <input type="number" value="{{buildId}}" name="buildId" hidden/>
+                <button type="submit" formaction="/building-delete" onclick="return confirm('Are you sure?');">Delete</button>
+            </form></td>
+        </tr>
+    {{/buildings}}
+    {{^buildings}}
+        <tr><td colspan="4">No buildings added yet.</td></tr>
+    {{/buildings}}
+    <tfoot><tr><th colspan="4"><form method="get"><button type="submit" formaction="/building-create">Add +</button></form></th></tr></tfoot>
+</table>
+
+</td></tr></table>
+</body>
+</html>

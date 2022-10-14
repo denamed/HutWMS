@@ -77,7 +77,7 @@ public class AreaController {
     public String getList(Model model)
     {
         model.addAttribute("areas", areasListDecor());
-        return "area-list";
+        return "area\\list";
     }
 
     // Get create Area
@@ -86,7 +86,7 @@ public class AreaController {
     {
         model.addAttribute("modules", moduleService.findAll());
         model.addAttribute("areaTypes", areaTypeService.findAll());
-        return "area-create";
+        return "area\\create";
     }
 
     // Get edit Area
@@ -99,11 +99,11 @@ public class AreaController {
             model.addAttribute("area", area);
             model.addAttribute("modules", moduleService.findAll());
             model.addAttribute("areaTypes", areaTypeService.findAll());
-            return "area-edit";
+            return "area\\edit";
         } catch (Exception e) {
             model.addAttribute("areas", areasListDecor());
             model.addAttribute("message", e.getMessage());
-            return "area-list";
+            return "area\\list";
         }
     }
 
@@ -120,10 +120,10 @@ public class AreaController {
             areaService.create(area);
             model.addAttribute("areas", areasListDecor());
             model.addAttribute("message", "Area created successfully.");
-            return "area-list";
+            return "area\\list";
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
-            return "area-create";
+            return "area\\create";
         }
     }
 
@@ -139,7 +139,7 @@ public class AreaController {
         areaService.edit(area);
         model.addAttribute("areas", areasListDecor());
         model.addAttribute("message", "Area edited successfully.");
-        return "area-list";
+        return "area\\list";
     }
 
     // Post delete Area
@@ -154,6 +154,6 @@ public class AreaController {
             model.addAttribute("message", e.getMessage());
         }
         model.addAttribute("areas", areasListDecor());
-        return "area-list";
+        return "area\\list";
     }
 }
