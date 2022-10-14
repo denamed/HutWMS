@@ -1,6 +1,5 @@
 package com.denamed.TestWMS.services;
 
-import com.denamed.TestWMS.entities.AreaType;
 import com.denamed.TestWMS.entities.LocationStatus;
 import com.denamed.TestWMS.repositories.LocationStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
