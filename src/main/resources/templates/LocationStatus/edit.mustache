@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Location status edit</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+    <table class="table">
+        <caption>LOCATION STATUS EDIT</caption>
+        <thead>
+        <tr>
+            <th width="72"><form method="get"><button type="submit" formaction="/locationStatus">< Back</button></form></th>
+            <th colspan="2">{{#message}}{{{message}}}{{/message}}</th>
+            <th width="72"><form method="get">
+                <input type="number" name="locatStatusId" value="{{#locationStatus}}{{locatStatusId}}{{/locationStatus}}" hidden/>
+                <input type="text" name="locatStatusDesc" value="{{#locationStatus}}{{locatStatusDesc}}{{/locationStatus}}" hidden/>
+                <button type="submit" formaction="/locationStatus-edit">Reset</button>
+            </form></th>
+        </tr>
+        </thead>
+        <form method="post">
+            <tr>
+                <td colspan="2"><label>Location status ID:</label></td>
+                <td><input type="number" name="locatStatusId" value="{{#locationStatus}}{{locatStatusId}}{{/locationStatus}}" hidden required/>
+                    <input type="number" value="{{#locationStatus}}{{locatStatusId}}{{/locationStatus}}" disabled required/></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="2"><label>Location status description:</label></td>
+                <td><input type="text" maxlength="16" name="locatStatusDesc" value="{{#locationStatus}}{{locatStatusDesc}}{{/locationStatus}}" required/></td>
+                <td></td>
+            </tr><tr>
+                <td colspan="4"><button type="submit" formaction="/locationStatus-edit">Save</button></td>
+            </tr>
+        </form>
+    </table>
+
+</td></tr></table>
+</body>
+</html>

@@ -31,7 +31,7 @@ public class LocationStatusController {
 
     //Get create
     @GetMapping("/locationStatus-create")
-    public String getCreate() { return "locationStatus-create";}
+    public String getCreate() { return "locationStatus\\create";}
 
     //get edit
     @GetMapping("/locationStatus-edit")
@@ -41,11 +41,11 @@ public class LocationStatusController {
         try {
             LocationStatus locationStatus = locationStatusService.findById(locatStatusId).get();
             model.addAttribute("locationStatus", locationStatus);
-            return "locationStatus-edit";
+            return "locationStatus\\edit";
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
             model.addAttribute("locationStatus", locationStatusService.findAll());
-            return "locationStatus-list";
+            return "locationStatus\\list";
         }
     }
 
@@ -61,10 +61,10 @@ public class LocationStatusController {
             List <LocationStatus> locationStatuses = locationStatusService.findAll();
             model.addAttribute("locationStatuses", locationStatuses);
             model.addAttribute("message", "Location Status successfully created.");
-            return "locationStatus-list";
+            return "locationStatus\\list";
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
-            return "locationStatus-create";
+            return "locationStatus\\create";
         }
     }
 
@@ -79,7 +79,7 @@ public class LocationStatusController {
         List<LocationStatus> locationStatuses = locationStatusService.findAll();
         model.addAttribute("locationStatuses", locationStatuses);
         model.addAttribute("message", "Location status successfully edited.");
-        return "locationStatus-list";
+        return "locationStatus\\list";
     }
 
     // Post delete
@@ -95,6 +95,6 @@ public class LocationStatusController {
         }
         List<LocationStatus> locationStatuses = locationStatusService.findAll();
         model.addAttribute("locationStatuses", locationStatuses);
-        return "locationStatus-list";
+        return "locationStatus\\list";
     }
 }
