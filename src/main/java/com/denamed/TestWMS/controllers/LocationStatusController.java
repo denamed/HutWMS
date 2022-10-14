@@ -26,7 +26,7 @@ public class LocationStatusController {
     {
         List<LocationStatus> locationStatuses = locationStatusService.findAll();
         model.addAttribute( "locationStatuses", locationStatuses);
-        return "locationStatus-list";
+        return "locationStatus\\list";
     }
 
     //Get create

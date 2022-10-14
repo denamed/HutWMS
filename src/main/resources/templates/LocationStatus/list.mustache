@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>LOCATION STATUSES</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+
+<table class="table">
+    <caption>LOCATION STATUSES</caption>
+    <thead>
+    <tr>
+        <th><form method="get"><button type="submit" formaction="/">< Back</button></form></th>
+        <th width="100%" colspan="3">{{#message}}{{{message}}}{{/message}}</th>
+        <th><form method="get"><button type="submit" formaction="/locationStatus">Refresh</button></form></th>
+    </tr>
+    <tr><th width="72" align="left">ID</th><th colspan="4" align="left">Description</th></tr>
+    </thead>
+<!-- REPLACE LIST VARIABLE -->
+    {{#locationStatuses}}
+        <tr>
+<!-- REPLACE VARIABLES NAMES -->
+            <td>{{locatStatusId}}</td>
+            <td width="100%">{{locatStatusDesc}}</td>
+            <td width="72"><form method="get">
+                <input type="number" value="{{locatStatusId}}" name="locatStatusId" hidden/>
+                <button type="submit" formaction="/locationStatus-edit">Edit</button>
+            </form></td>
+            <td width="72"><form method="post">
+                <input type="number" value="{{locatStatusId}}" name="locatStatusId" hidden/>
+                <button type="submit" formaction="/locatStatus-delete" onclick="return confirm('Are you sure?');">Delete</button>
+            </form></td>
+        </tr>
+    {{/locationStatuses}}
+
+    {{^locationStatuses}}
+            <tr><td colspan="5">No location statuses added yet.</td></tr>
+    {{/locationStatuses}}
+<tfoot><tr><th colspan="5"><form method="get"><button type="submit" formaction="/locationStatus-create">Add +</button></form></th></tr></tfoot>
+</table>
+
+</td></tr></table>
+</body>
+</html>
