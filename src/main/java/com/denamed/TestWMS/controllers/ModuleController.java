@@ -55,7 +55,7 @@ public class ModuleController {
     public String getList(Model model)
     {
         model.addAttribute("modules", modulesDecorated());
-        return "module-list";
+        return "Module\\list";
     }
 
     //Get create
@@ -63,7 +63,7 @@ public class ModuleController {
     public String getCreate(Model model)
     {
         model.addAttribute("buildings", buildingService.findAll());
-        return "module-create";
+        return "Module\\create";
     }
 
     //Get edit
@@ -77,11 +77,11 @@ public class ModuleController {
             model.addAttribute("module", module);
             model.addAttribute("buildName", buildName);
             model.addAttribute("buildings", buildingService.findAll());
-            return "module-edit";
+            return "Module\\edit";
         }catch(Exception e){
             model.addAttribute("message", e.getMessage());
             model.addAttribute("modules", modulesDecorated());
-            return "module-list";
+            return "Module\\list";
         }
     }
 
@@ -96,10 +96,10 @@ public class ModuleController {
             moduleService.create(module);
             model.addAttribute("modules", modulesDecorated());
             model.addAttribute("message", "Module created successfully.");
-            return "module-list";
+            return "Module\\list";
         } catch (Exception e){
             model.addAttribute("message", e.getMessage());
-            return "module-create";
+            return "Module\\create";
         }
     }
 
@@ -114,7 +114,7 @@ public class ModuleController {
        moduleService.edit(module);
        model.addAttribute("modules", modulesDecorated());
        model.addAttribute("message", "Module edited successfully.");
-       return "module-list";
+       return "Module\\list";
     }
 
     //Post delete
@@ -129,7 +129,7 @@ public class ModuleController {
             model.addAttribute("message", e.getMessage());
         }
         model.addAttribute("modules", modulesDecorated());
-        return "module-list";
+        return "Module\\list";
     }
 
 }

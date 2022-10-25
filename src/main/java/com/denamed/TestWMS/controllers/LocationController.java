@@ -27,7 +27,7 @@ public class LocationController {
     public String getList(Model model)
     {
         model.addAttribute("locations", locationService.findAll());
-        return "location-list";
+        return "Location\\list";
     }
 
     //Get create
@@ -35,7 +35,7 @@ public class LocationController {
     public String getCreate(Model model)
     {
         model.addAttribute("areas", areaService.findAll());
-        return "location-create";
+        return "Location\\create";
     }
 
     //Get edit
@@ -56,10 +56,10 @@ public class LocationController {
             locationService.create(location);
             model.addAttribute("locations", locationService.findAll());
             model.addAttribute("message", "Location created successfully.");
-            return "location-list";
+            return "Location\\list";
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
-            return "location-create";
+            return "Location\\create";
         }
     }
 }

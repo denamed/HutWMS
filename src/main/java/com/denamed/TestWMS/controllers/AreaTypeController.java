@@ -23,12 +23,12 @@ public class AreaTypeController {
     {
         List<AreaType> areaTypes = areaTypeService.findAll();
         model.addAttribute( "areaTypes", areaTypes);
-        return "areaType-list";
+        return "AreaType\\list";
     }
 
     // Get create AreaType
     @GetMapping("/areaType-create")
-    public String getCreate() { return "areaType-create"; }
+    public String getCreate() { return "AreaType\\create"; }
 
     // Get edit AreaType
     @GetMapping("/areaType-edit")
@@ -38,11 +38,11 @@ public class AreaTypeController {
        try {
            AreaType areaType = areaTypeService.findById(areaTypeId).get();
            model.addAttribute("areaType", areaType);
-           return "areaType-edit";
+           return "AreaType\\edit";
        } catch (Exception e) {
            model.addAttribute("message", e.getMessage());
            model.addAttribute("areaType", areaTypeService.findAll());
-           return "areaType-list";
+           return "AreaType\\list";
        }
     }
 
@@ -58,10 +58,10 @@ public class AreaTypeController {
             List <AreaType> areaTypes = areaTypeService.findAll();
             model.addAttribute("areaTypes", areaTypes);
             model.addAttribute("message", "Area type successfully created.");
-            return "areaType-list";
+            return "AreaType\\list";
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
-            return "areaType-create";
+            return "AreaType\\create";
         }
     }
 
@@ -76,7 +76,7 @@ public class AreaTypeController {
         List<AreaType> areaTypes = areaTypeService.findAll();
         model.addAttribute("areaTypes",areaTypes);
         model.addAttribute("message", "Area type successfully edited.");
-        return "areaType-list";
+        return "AreaType\\list";
     }
 
     // Post delete AreaType
@@ -92,6 +92,6 @@ public class AreaTypeController {
         }
         List<AreaType> areaTypes = areaTypeService.findAll();
         model.addAttribute("areaTypes", areaTypes);
-        return "areaType-list";
+        return "AreaType\\list";
     }
 }

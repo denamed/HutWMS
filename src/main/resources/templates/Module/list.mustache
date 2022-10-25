@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MODULES</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table width="100%" class="body"><tr><td align="center">
+
+<table class="table">
+    <caption>MODULES</caption>
+    <thead>
+    <tr>
+        <th><form method="get"><button type="submit" formaction="/">< Back</button></form></th>
+        <th width="100%" colspan="3">{{#message}}{{{message}}}{{/message}}</th>
+        <th><form method="get"><button type="submit" formaction="/module">Refresh</button></form></th>
+    </tr>
+    <tr>
+        <th width="72" align="left">ID</th>
+        <th align="left">Description</th>
+        <th colspan="3" align="left">Building</th>
+    </tr>
+    </thead>
+{{#modules}}
+    <tr>
+        <td>{{modulId}}</td>
+        <td>{{modulDesc}}</td>
+        <td width="100%">{{buildId}}. {{buildName}}</td>
+        <td width="72"><form method="get">
+            <input type="number" value="{{modulId}}" name="modulId" hidden/>
+            <input type="text" value="{{buildName}}" name="buildName" hidden/>
+            <button type="submit" formaction="/module-edit">Edit</button>
+        </form></td>
+        <td width="72"><form method="post">
+            <input type="number" value="{{modulId}}" name="modulId" hidden/>
+            <button type="submit" formaction="/module-delete" onclick="return confirm('Are you sure?');">Delete</button>
+        </form></td>
+    </tr>
+{{/modules}}
+{{^modules}}
+    <tr><td colspan="5">No modules added yet.</td></tr>
+{{/modules}}
+    <tfoot><tr><th colspan="5"><form method="get"><button type="submit" formaction="/module-create">Add +</button></form></th></tr></tfoot>
+</table>
+
+</td></tr></table>
+</body>
+</html>
+
+
