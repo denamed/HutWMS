@@ -1,49 +1,10 @@
 body {
+    margin: 0px;
     background: #DFDFDF;
     font-family: monospace;
 }
-table {
-    border: 0px;
-    padding: 0px;
-    border-collapse: collapse;
-}
-.alert {
-    color: red;
-    font-size: 20px;
-    font-weight: bold;
-}
-.table {
-	width: 720px;
-	margin-bottom: 20px;
-}
-.table caption {
-	font-weight: bold;
-	font-size: 20px;
-}
-.table thead th {
-	height: 25px;
-	vertical-align: middle;
-	font-weight: bold;
-	text-shadow: 1px 1px 2px #666666;
-	background: #F0F0F0;
-}
-.table tfoot th {
-	height: 25px;
-	vertical-align: middle;
-	text-align: left;
-	font-weight: bold;
-	text-shadow: 1px 1px 2px #666666;
-	background: #F0F0F0;
-}
-.table td {
-    height: 22px;
-}
-.table tbody tr:nth-child(odd){
-	background: #DFDFDF;
-}
-.table tbody tr:nth-child(even){
-	background: #D3D3D3;
-}
+
+
 
 button {
     border-color: #0F0F0F;
@@ -55,18 +16,14 @@ button {
     color: #666666;
     box-shadow: 1px 1px 1px #696969;
 }
+
 button:hover {
     background: #C0C0C0;
     color: #000000;
     text-shadow: 0px 0px 4px #F9F9F9;
     box-shadow: inset 0px 0px 2px #6C6C6C;
 }
-.menubut {
-    width: 178px;
-    height: 28px;
-    color: #333333;
-    font-size: 16px;
-}
+
 input {
   width: 200px;
   height: 12px;
@@ -75,4 +32,49 @@ input {
 select {
   width: 208px;
   height: 18px;
+}
+
+.body {
+    height: 100vh;
+    width: 100%;
+    border-spacing: 13px;
+    border: 0px;
+}
+.left {
+    width: 200px;
+    height: 100%;
+    border: 0px;
+    background-color: #AAAAAA;
+    box-shadow: 5px 5px 3px #666666;
+}
+.right {
+    height: 100%;
+    vertical-align: top;
+    border: 0px;
+    background-color: #BBBBBB;
+    box-shadow: 5px 5px 3px #666666;
+}
+.ctable {
+    width: 100%;
+    border: 1px solid red;
+}
+.caption {
+    width: 100%;
+    height: 28px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: #AAAAAA;
+    margin: 10px;
+    border: 0px;
+    box-shadow: 3px 3px 2px #666666;
+}
+.alert {
+    color: red;
+    height: 18px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.nav {
+    display: flex;
 }
