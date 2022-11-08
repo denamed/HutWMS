@@ -55,7 +55,14 @@ public class Location {
     public Location() {
     }
 
-    public Location( int areaId, short locatRow, short locatPlace, short locatLevel, short locatCapacity, short locatStatus, short locatTypeId) {
+    public Location( int areaId,
+                     short locatRow,
+                     short locatPlace,
+                     short locatLevel,
+                     short locatCapacity,
+                     short locatStatus,
+                     short locatTypeId)
+    {
         this.areaId = areaId;
         this.locatRow = locatRow;
         this.locatPlace = locatPlace;
